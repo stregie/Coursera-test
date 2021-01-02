@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basics of CSS</title>	
+	<style>
+		* {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+		body{
+			margin-top: 40px;
+			margin-left: 80px;
+			margin-right: 80px;
+			background-color: BlanchedAlmond;
+			font: 12px Arial, sans-serif;
+			color: rgb(128,0,0);
+		}
+		h1{
+			font: 24px Verdana, sans-serif;
+			font-style: bold;
+			color: Coral;
+		}
+		h2{
+			margin-top: 10px;
+			font: 18px Verdana, sans-serif;
+			color: #D2691E;					
+		}
+		p{
+			margin-bottom: 10px;
+		}
+		ul{
+			list-style-type: none;
+			margin-bottom: 10px;	
+		}
+		a{
+			color: rgb(255,0,0);
+			text-decoration: none;
+		}
+		a:visited{
+			color: #B00000;
+		}
+		a:hover{
+			background-color: Grey;
+		}
+
+		section > ul{
+			list-style-type: circle;
+		}
+		h2 + *{			
+			margin-left: 10px;
+		}
+		
+		}
+	</style>
+
+</head>
+<body>
+	<h1 id="top">CSS Rule sandbox</h1>
+	
+	<ul>
+		<li><a href="#h2-1">Subheading 1</a></li>
+		<li><a href="#h2-2">Subheading 2</a></li>
+		<li><a href="#h2-3">Subheading 3</a></li>
+	</ul>
+
+	<h2 id="h2-1">Subheading 1</h2>
+	<p>Mauris consectetur urna et purus fermentum, vitae aliquet dolor iaculis.</p>
+
+	<h2 id="h2-2">Subheading 2</h2>
+
+	<p>CSS works by associating rules with HTML elements. These rules govern how the content of specified elements should be displayed. A CSS rule contains two parts: a selector and a declaration.</p>
+
+	<h2 id="h2-3">Subheading 3</h2>	
+
+	<section>		
+		<p>List of items in a section:</p>
+		<ul>
+			<li>List 1</li>
+			<li>List 2</li>
+			<li>List 3</li>
+		</ul>
+	</section>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est maxime aperiam blanditiis reprehenderit voluptatem quia quas nesciunt amet atque temporibus quod harum sequi voluptate consequatur tenetur perferendis, cum ad! Eos.</p>
+	<p>Nam faucibus diam tellus. Phasellus nisi dolor, aliquam accumsan vulputate eu, aliquam ac sem.</p>
+
+	<a href="#top" id="btt">Back to top</a>
+
+
+	<!--
+	<h2>Subheading 3</h2>
+	
+	<div id="div1">  Nam faucibus diam tellus. Phasellus nisi dolor, aliquam accumsan vulputate eu, aliquam ac sem. Suspendisse <span class="italic">dignissim</span> tristique laoreet. Ut semper augue vitae enim vulputate, non interdum felis consequat. Maecenas eget arcu quis risus tincidunt aliquet. Fusce <span class="italic">malesuada</span> risus a molestie auctor. Integer pharetra lacus vel massa accumsan, et fringilla ante fermentum.</div>
+-->
+</body>
