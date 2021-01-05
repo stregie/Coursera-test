@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Floats</title>	
+</head>
+<style>
+* {
+	box-sizing: border-box;
+}
+
+p {
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	color: white;
+	margin: 0px;
+}
+
+#d1{background-color: beige; border: 1px solid black; width: 500px;	height: 300px; position: relative; margin-bottom: 100px;}
+#p1a {background-color: black; position: absolute; top: 0px; left: 100px;}
+#d2a {background-color: lime; height: 100px; width: 100px; position: relative; top: 40px; left: 10px;}
+#p2-1a {background-color: purple; position: relative; top: 10px; left: 10px;}
+#p3a {background-color: red; position: relative; top: 30px; left: 0px;}
+
+
+#d2{background-color: beige; border: 1px solid black; width: 500px;	height: 800px;}
+#p1b {background-color: black; height: 50px; width: 100%;}
+#p2b {background-color: lime; height: 600px; width: 70%; float: left;}
+#p3b {background-color: blue; height: 600px; width: 30%; float: right;}
+#p4b {background-color: red; height: 50px; width: 100%; clear: both;}
+
+
+
+
+</style>
+<body>
+	<h1>Floating</h1>
+	<div id="d1">
+		<p id="p1a">1a</p>
+		<div id="d2a">2a
+			<p id="p2-1a">2-1a</p>
+		</div>
+		<p id="p3a">3a</p>
+	</div>
+
+
+	<div id="d2">
+		<p id="p1b">1 - nav</p>
+		<p id="p2b">2 - content</p>
+		<p id="p3b">3 - urls</p>
+		<p id="p4b">4 - footer</p>
+
+	</div>
+</body>
+</html>
