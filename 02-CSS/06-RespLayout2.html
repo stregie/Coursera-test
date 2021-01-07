@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Responsive layout design</title>	
+</head>
+<style>
+*{box-sizing: border-box;}
+header{height: 80px; background-color: Chocolate;	color: white; text-align: center; font-size: 40px;}
+body{width: 100%; font-family: sans-serif; background-color: Cornsilk;}
+div{background-color: BlanchedAlmond; color: Coral; padding: 15px;}
+h2{text-align: left; font-weight: bold;	font-size: 20px;}
+p{text-align: justify; font-weight: normal; font-size: 10px;}
+ul{list-style: none;}
+a{}
+footer{background-color: BlanchedAlmond; color: Maroon; font-size: 15px;font-style: italic;}
+
+@media (min-width: 820px){
+	.col-lg-12, .col-lg-9, .col-lg-3{float: left;}
+	.col-lg-12{width: 100%;}
+	.col-lg-9{width: 74.99%;}
+	.col-lg-3{width: 25%;}
+
+}
+		
+@media (max-width: 819px){
+	.col-md-12, .col-md-9, .col-md-3 {float: left;}
+	.col-md-12{width: 100%;}
+	.col-md-9{width: 74.99%;}
+	.col-md-3{width: 25%;}
+}
+
+</style>
+<body>
+	<header class="col-md-12 col-lg-12" id="header">Header</header>
+	<div class="col-md-12 col-lg-9" id="Articles">
+		<h2>Article title</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquet nisi lorem, a egestas ipsum faucibus nec. Praesent ut ipsum libero. Donec et sapien lobortis, porta nunc sit amet, bibendum tellus. Nulla ac orci placerat, sodales est dapibus, iaculis turpis. Suspendisse et aliquam neque, vel vehicula massa. Proin sed ornare ante.</p>
+
+		<h2>Article title</h2>
+		<p>Donec fermentum et ipsum sed facilisis. Donec dolor mauris, sollicitudin ac auctor in, ultricies a turpis. Vivamus volutpat ac nunc finibus placerat. Aliquam dictum nisi sit amet justo mollis lacinia. Duis interdum, ipsum mattis hendrerit faucibus, ex justo volutpat turpis, in commodo justo ipsum a erat.</p>
+	</div>
+	
+	<div class="col-md-12 col-lg-3" id="URL list">
+		<h2>Useful links</h2>
+		<ul>
+			<li><a href="http://duckduckgo.com/">Link1</a></li>
+			<li><a href="http://duckduckgo.com/">Link2</a></li>
+			<li><a href="http://duckduckgo.com/">Link3</a></li>
+		</ul>
+	</div>
+
+	<footer class="col-md-12 col-lg-12" id="footer">
+		ST, 2020<br>
+		<a href="mailto:faragjgeci@pinocchio.com">E-mail address</a>
+	</footer>
+</body>
