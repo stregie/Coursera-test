@@ -1,0 +1,19 @@
+/*https://coolors.co/f8f9fc-c6cee7-28112b-28536b-6a66a3
+--ghost-white: #f8f9fcff;
+--periwinkle-crayola: #c6cee7ff;
+--dark-purple: #28112bff;
+--blue-sapphire: #28536bff;
+--dark-blue-gray: #6a66a3ff;
+*/
+
+body {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	color: #28112b;
+	background-color: #f8f9fc;
+}
+
+.testBox{
+	background: #28536b; color: white; width: 200px; height: 200px; border-width: 1px;
+}
