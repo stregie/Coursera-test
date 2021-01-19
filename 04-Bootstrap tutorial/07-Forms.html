@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>HTML Forms</title>
+	<style>
+		body{
+			box-sizing: border-box;
+		}
+		.ownBox {
+			background-color: linen;
+			border-style: solid;
+			border-width: 1px;
+		}
+		input[type=text]{
+			width: 200px;
+			height: 50px;
+		}
+		input[type=radio]{
+			background-color: lime;
+		}
+
+	</style>
+</head>
+<body>
+ <h1>HTML Forms</h1>
+ <form>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname">
+ </form>
+	
+ <!-- name needs to be the same -->
+ <form>
+	<input type = "radio" id = "radio1" name = "rbt"><label for = "radio1">Radio button 1</label><br>
+ 	<input type = "radio" id = "radio2" name = "rbt"><label for = "radio2">Radio button 2</label><br>
+ 	<input type = "radio" id = "radio3" name = "rbt"><label for = "radio3">Radio button 3</label><br>
+ 	<input type = "submit" value = "Okay">
+ </form>
+
+<form>
+  <label for="vehicle1"> I have a bike</label>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label>
+  <input type = "file" id = "inputfile">
+</form> 
+
+</body>
+</html>

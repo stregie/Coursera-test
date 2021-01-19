@@ -1,0 +1,4 @@
+Legyen egy:
+- Név
+- E-mail cím
+-

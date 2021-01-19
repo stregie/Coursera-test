@@ -1,0 +1,14 @@
+Bootstrap - Grid system:
+------------------------
+- Basic grid structure: 1. container 3. row 3. Column (pl: col-md-6) 4
+ A container fix szélességű, a container-fluid a képernyő széléig ér. Az XS mindig fluid
+ Ha több, mint 12: átmegy köv oszlopba
+ Ha eltérő magasság miatt összeakad: .clearfix-szel lehet javítani. Ezt a sort beszúrva a html-be az az alatti rész új sorba ugrik, ha igaz rá a képernyőszélesség
+- Offset: 1-11-ig, n grid egységgel tolja jobbra (push) húzza balra (pull) a kiindulópontot.
+- Nesting: új row, ami 12 új részt hoz létre 
+
+Bootstrap - CSS overview:
+-------------------------
+- Containers are not nestable
+- Responsive images: Better for adjusting image-size. The Yaakov-style background-of-div type: better for fixed div-size. (??)
+

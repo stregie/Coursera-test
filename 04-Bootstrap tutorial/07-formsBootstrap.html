@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+   <head>
+      <title>Forms with Bootstrap</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+      
+      <!-- Bootstrap -->
+      <link href = "css/bootstrap.min.css" rel = "stylesheet">
+      
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src = "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      
+      <style>
+         body {
+            box-sizing: border-box;
+            background-color: #d6eadc;
+         }
+         .ownBox1 {
+            background-color: aliceblue;
+            border-style: none;
+            border-width: 0px;
+         }
+         .ownBox2 {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #9FD0A9;
+            border-style: none;
+            border-width: 0px;
+         }
+         .ownBtn {
+            background-color: #3A7D44;
+            border-color: #27542D;
+            transition-duration: 0.4s;
+            color: white;         
+         }
+         .ownBtn:hover {
+            background-color: #27542D;
+            border-color: #1a381e;
+            color: white; 
+         }
+         .ownBtn:active {
+            background-color: #6DA777;
+            border-color: #3A7D44;
+            color: white;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <h1 style = "text-align: center">Forms with Bootstrap</h1>     
+      
+      <form class = "form-horizontal col-sm-10 col-sm-offset-1 ownBox2">
+        <h2 style = "text-align: center; margin-top: 0px; margin-bottom: 40px;">A Contact Box</h2>
+        <div class = "form-group">
+          <label for = "fullname" class = "col-sm-2 control-label">Full Name</label>
+          <div class = "col-sm-9">
+            <input type = "text" id = "fullname" class = "form-control" placeholder = "e.g: John Smith or János Kovács" maxlength = "63">
+          </div>
+        </div>
+          
+        <div class = "form-group">
+          <label for = "mailaddress" class = "col-sm-2 control-label">E-mail Address</label>
+          <div class = "col-sm-9">
+            <input type = "text" id = "mailaddress" class = "form-control" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <label for = "age" class = "col-sm-2 control-label">Age</label>
+          <div class = "col-sm-9">
+            <select id = "age" class = "form-control">
+              <option>0 - 17</option>
+              <option>18 - 49</option>
+              <option>50 -</option>              
+            </select>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <label for = "message" class = "col-sm-2 control-label">Message</label>
+          <div class = "col-sm-9">
+            <textarea id = "message" rows = "6" class = "form-control" placeholder = "Enter your message here..." maxlength = "10000" style = "resize: vertical; overflow-y: auto;"></textarea>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-9">
+            <div class = "checkbox">
+              <label><input type = "checkbox">I agree to receive a reply to the given address</label>
+            </div>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-2">
+            <button type = "submit" class ="btn btn-block ownBtn">Send</button>
+          </div>
+        </div>           
+
+      </form>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src = "https://code.jquery.com/jquery.js"></script>
+      
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src = "js/bootstrap.min.js"></script>
+      
+   </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+   <head>
+      <title>Bootstrap 3 Tutorial: Grid system2</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+      
+      <!-- Bootstrap -->
+      <link href = "css/bootstrap.min.css" rel = "stylesheet">
+      
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src = "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      
+      <style>
+         body{
+            box-sizing: border-box;
+         }
+         .ownBox {
+           background-color: linen;
+           border-style: solid;
+           border-width: 1px;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <div class = "container">
+
+         <h2>Example: No offset</h2>
+
+         <div class = "row" >
+            <div class = "col-md-3" style = "background-color: #dedef8; 
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+         </div>
+
+         <h2>Example: Offset-columns</h2>
+
+         <div class = "row" >
+            <div class = "col-xs-6 col-md-offset-3" style = "background-color: #dedef8; 
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+         </div>
+
+         <h2>Example: Nesting columns</h2>
+
+         <div class = "row">
+            <div class = "col-md-6 ownBox">
+               <div class = "row">
+                  <div class = "col-sm-6 col-md-6 ownBox">
+                     <p>In sagittis euismod tellus, sed rutrum tortor. Suspendisse ullamcorper nibh id felis ultrices pulvinar. Aliquam justo tellus, lacinia vel eros imperdiet, porttitor laoreet urna. Nulla lacus turpis, tempor nec convallis ac, ultrices at magna. Proin in orci arcu. Etiam ac dictum sem, tincidunt condimentum nisi. Sed arcu dui, sagittis non sem sit amet, pulvinar tristique ex.</p>
+                  </div>
+                  <div class = "col-sm-6 col-md-6 ownBox">
+                     <p>Aenean rutrum nisl urna, eget dignissim neque congue a. Integer elit mauris, viverra vitae risus eu, ornare feugiat odio. In vel vestibulum orci, vitae iaculis est. Cras vel erat lacinia, lacinia mi ac, vestibulum nisi. Sed imperdiet, erat at hendrerit tincidunt, mi erat eleifend orci, accumsan tincidunt metus nulla vel ex.</p>
+                  </div>
+               </div>
+            </div>
+            <div class = "col-md-6 ownBox">
+               <p>Donec mollis scelerisque mauris, sed blandit diam tempor pellentesque. Aenean tempus leo malesuada, efficitur urna id, sagittis ipsum. Sed fermentum congue ex in hendrerit. Nam in sapien tincidunt, dictum diam eu, convallis mi. Sed posuere neque purus, eget pellentesque lacus euismod nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+         </div>         
+      </div>
+
+
+
+      <div class = "container">
+         <h2>Example: Column ordering</h2>
+         
+         <div class = "row">
+            <p>Before Ordering</p>
+            
+            <div class = "col-md-4" style = "background-color: #dedef8;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               I am on left
+            </div>
+            
+            <div class = "col-md-8" style = "background-color: #dedef8;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               I am on right
+            </div>
+            
+         </div>
+         
+         <br>
+         
+         <div class = "row">
+            <p>After Ordering</p>
+            
+            <div class = "col-md-4 col-md-push-8" style = "background-color: #dedef8;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               I was on left
+            </div>
+            
+            <div class = "col-md-8 col-md-pull-4" style = "background-color: #dedef8;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+               
+               I was on right
+            </div>
+            
+         </div>
+
+      </div>
+
+      <div class = "container">
+         <h2>Example: Column ordering - own version</h2>
+         <div class = "row">
+            <div class = "col-md-4 col-md-push-1 ownBox">
+               <p>Nullam arcu augue, accumsan sit amet massa volutpat, aliquet consectetur urna. Integer quis purus eget lectus finibus varius. Suspendisse non sollicitudin justo. Vestibulum elementum nibh id pellentesque semper. Cras nisi sapien, varius a mauris non, dignissim congue nisi. Morbi egestas at urna id cursus. Maecenas in enim vitae metus posuere fringilla. Sed pellentesque ex vitae nisi consectetur auctor. Integer commodo lacus non nunc laoreet, vel rutrum lacus auctor.</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src = "https://code.jquery.com/jquery.js"></script>
+      
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src = "js/bootstrap.min.js"></script>
+      
+   </body>
+</html>
