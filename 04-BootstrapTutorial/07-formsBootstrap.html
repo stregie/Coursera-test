@@ -7,6 +7,8 @@
       
       <!-- Bootstrap -->
       <link href = "css/bootstrap.min.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery.js"></script>
+      <script src = "js/bootstrap.min.js"></script>
       
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,6 +19,7 @@
       <![endif]-->
       
       <style>
+         /*https://coolors.co/d6eadc-bbddc3-9fd0a9-6da777-3a7d44-27542d-1a381e*/
          body {
             box-sizing: border-box;
             background-color: #d6eadc;
@@ -67,7 +70,10 @@
         <div class = "form-group">
           <label for = "mailaddress" class = "col-sm-2 control-label">E-mail Address</label>
           <div class = "col-sm-9">
-            <input type = "text" id = "mailaddress" class = "form-control" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
+            <div class = "input-group">
+              <input type = "text" id = "mailaddress" class = "form-control" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
+              <span class = "input-group-addon">@</span>
+            </div>
           </div>
         </div>
 
@@ -101,14 +107,7 @@
           <div class = "col-sm-offset-2 col-sm-2">
             <button type = "submit" class ="btn btn-block ownBtn">Send</button>
           </div>
-        </div>           
-
-      </form>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src = "https://code.jquery.com/jquery.js"></script>
-      
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src = "js/bootstrap.min.js"></script>
-      
+        </div>
+      </form>           
    </body>
 </html>
