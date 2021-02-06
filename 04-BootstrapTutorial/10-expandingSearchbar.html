@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Expanding Search bar</title>
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">   
+	<link href = "css/bootstrap.min.css" rel = "stylesheet">
+	<script src = "https://code.jquery.com/jquery.js"></script>
+	<script src = "js/bootstrap.min.js"></script>
+
+	<style>
+	  /*https://coolors.co/d6eadc-bbddc3-9fd0a9-6da777-3a7d44-27542d-1a381e*/
+	  body {
+	    box-sizing: border-box;
+	    background-color: #D6EADC;
+	  }
+	  h3{
+	  	margin-bottom: 0px;
+	  }
+
+	</style>
+</head>
+
+<body>
+	<h1 style="margin-bottom: 30px;">Expanding Search Bar</h1>
+
+	<h3>Bootstrap - Default navbar, untouched</h3>
+	<p>Only a search form element was added. Everything on default values. id = b1 (not used)</p>
+
+	<nav class = "navbar navbar-default">
+      <div class = "container-fluid">
+        <div class = "navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ownNavbar1">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">B1DefNavbar</a>
+        </div>
+        <div class = "collapse navbar-collapse" id="ownNavbar1">
+          <ul class = "nav navbar-nav">
+            <li><a href = "#">Item 1</a></li>
+            <li><a href = "#">Item 2</a></li>
+            <li><a href = "#">Item 3</a></li>
+          </ul>
+          <form class = "navbar-form navbar-right" action = "#">
+          	  <div class = "input-group">
+		        <input type = "text" class ="form-control" placeholder = "Search">
+		        <div class = "input-group-btn">
+		          <button class = "btn btn-default" type = "submit">
+		            <i class = "glyphicon glyphicon-search"></i>
+		          </button>
+		        </div>
+		      </div>
+		  </form>
+      </div>         
+    </nav>
+
+
+	<h3>Bootstrap - Default navbar, expanding search bar</h3>
+	<p>The search bar needs to stay right, and should expand to the left if focused. It does not look good on extra-small. id = b2</p>
+	
+	<style>
+		
+
+		#b2form{ /* Remove comments to identify each element */
+			width: 239px;
+
+			/*background-color: #8DB6CE;
+			height: 50px;*/
+		}
+		#b2form .input-group{			
+			width: 0px;
+			position: relative;			
+			float: right;
+
+			/*background: #3A6BA6;
+			width: 200px;*/
+		}		
+		#b2form input{
+			width: 168px;
+			transition: width 0.4s ease-in-out;
+			
+			/*background-color: #FFEFD3;*/
+		}
+		#b2form input:focus{
+			float: right;
+			width: 300px;
+			
+			/*background-color: #FF9633;*/
+		}
+		#b2form .input-group-btn{
+			/*background-color: red;
+			width: 30px;*/
+		}
+		#b2form button{
+			/*background: #FFC49B;*/
+		}
+	</style>
+
+	<nav id="b2nav" class = "navbar navbar-default">
+      <div class = "container-fluid">
+        <div class = "navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ownNavbar2">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">B2DefNavbar</a>
+        </div>
+        <div class = "collapse navbar-collapse" id="ownNavbar2">
+          <ul class = "nav navbar-nav">
+            <li><a href = "#">Item 1</a></li>
+            <li><a href = "#">Item 2</a></li>
+            <li><a href = "#">Item 3</a></li>
+            <li><a href = "#">Item 4</a></li>
+            <li><a href = "#">Item 5</a></li>            
+          </ul>
+          <form id="b2form" class = "navbar-form navbar-right" action = "#">
+          	  <div class = "input-group push-right">
+		        <input type = "text" class ="form-control" placeholder = "Search">
+		        <div class = "input-group-btn">
+		          <button class = "btn btn-default" type = "submit">
+		            <i class = "glyphicon glyphicon-search"></i>
+		          </button>
+		        </div>
+		      </div>
+		  </form>
+      </div>
+    </nav>
+    <p>Instructions: Give the id = &quot;b2form&quot; to the form HTML tag and use the styles included for this example. Customize names if needed.</p>
+
+    <h3>Bootstrap - Default navbar, expanding search bar, small device only</h3>
+	<p>Similar as The search bar needs to stay right. and should expand to the left if focused. id = b3.</p>
+
+	<p class="visible-xs-block" style="font-weight: bold;">The display width is extra-small</p>
+	<p class="visible-sm-block" style="font-weight: bold;">The display width is small</p>
+	<p class="visible-md-block" style="font-weight: bold;">The display width is medium</p>
+	<p class="visible-lg-block" style="font-weight: bold;">The display width is large</p>
+	
+	<style>
+		/*********** Medium and large devices ***********/
+		@media (min-width: 992px){
+			
+		}
+
+		/*********** Small devices only ***********/
+		@media (min-width: 768px) and (max-width: 991px){
+		#b3form{ /* Remove comments to identify each element */
+			width: 239px;
+
+			/*background-color: #8DB6CE;
+			height: 50px;*/
+		}
+		#b3form .input-group{			
+			width: 0px;
+			position: relative;			
+			float: right;
+
+			/*background: #3A6BA6;
+			width: 200px;*/
+		}		
+		#b3form input{
+			width: 168px;
+			transition: width 0.4s ease-in-out;
+			
+			/*background-color: #FFEFD3;*/
+		}
+		#b3form input:focus{
+			float: right;
+			width: 300px;
+			
+			/*background-color: #FF9633;*/
+		}
+		#b3form .input-group-btn{
+			/*background-color: red;
+			width: 30px;*/
+		}
+		#b3form button{
+			/*background: #FFC49B;*/
+			
+		}
+
+		/*********** Extra small devices only ***********/
+		@media (max-width: 767px){
+
+		}
+	</style>
+
+	<nav id="b3nav" class = "navbar navbar-default">
+      <div class = "container-fluid">
+        <div class = "navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ownNavbar3">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">B2DefNavbar</a>
+        </div>
+        <div class = "collapse navbar-collapse" id="ownNavbar3">
+          <ul class = "nav navbar-nav">
+            <li><a href = "#">Item 1</a></li>
+            <li><a href = "#">Item 2</a></li>
+            <li><a href = "#">Item 3</a></li>
+            <li><a href = "#">Item 4</a></li>
+            <li><a href = "#">Item 5</a></li>            
+          </ul>
+          <form id="b3form" class = "navbar-form navbar-right" action = "#">
+          	  <div class = "input-group push-right">
+		        <input type = "text" class ="form-control" placeholder = "Search">
+		        <div class = "input-group-btn">
+		          <button class = "btn btn-default" type = "submit">
+		            <i class = "glyphicon glyphicon-search"></i>
+		          </button>
+		        </div>
+		      </div>
+		  </form>
+      </div>
+    </nav>
+    <p>Instructions: Give the id = &quot;b2form&quot; to the form HTML tag and use the styles included for this example. Customize names if needed.</p>
+
+
+    <h3>Expanding Search Input 1</h3>
+    <p>From w3schools CSS tutorial / CSS Forms / Animated Search Input.<br>It has to "float" over Column 2. id = ex1</p>
+    
+    <style>
+    	#ex1row{
+    		background-color: #bbddc3;
+    	}
+    	#ex1input{
+    		width: 150px;    		
+    		transition: width 0.4s ease-in-out;
+    	}
+    	#ex1input:focus{
+    		width: 800px;
+    	}
+    </style>
+
+    <div class = "container">
+    	<div id="ex1row" class ="row">
+    	  <div class ="col-md-6" style="z-index: 2;">
+      		<form>
+			  <input id="ex1input" type="text" name="search" placeholder="Search..">
+			</form>
+    	  </div>
+    	  <div class ="col-md-6" style="z-index: 1;">
+    			<p>Column 2</p>
+    	  </div>
+    	</div>
+    </div>
+    
+
+    <h3>Expanding Search Input 2</h3>
+    <p>It should expand to the right and float over the darker div on the left. id = ex2</p>
+    
+    <style>
+    	#ex2input{
+    		height: 40px;
+    		width: 150px;
+    		float: right;
+    		transition: width 0.4s ease-in-out;
+    	}
+    	#ex2input:focus{
+    		width: 800px;
+    	}
+    </style>
+	
+	<div style="background-color: #9fd0a9; height: 40px; width: 200px; margin-left: 50px; float: left; z-index: 1;">		
+	</div>
+	<div style="background-color: #bbddc3; height: 40px; width: 600px; margin-left: 20px; float: left; z-index: 2;">
+      <form>
+	    <input id="ex2input" type="text" name="search" placeholder="Search..">
+	  </form>
+	</div>
+</body>
