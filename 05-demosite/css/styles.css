@@ -1,0 +1,346 @@
+*{
+  /* universal colors */
+  --color-bg-1: #f2f8f3ff;
+  --color-bg-2: #d6eadcff;
+  --color-bg-3: #bbddc3ff;
+  --color-bg-4: #9fd0a9ff;
+  --color-border-1: #3a7d44ff;
+  --color-border-2: #1a381eff;
+  --color-item-0: #fff;
+  --color-item-1: #f2f8f3ff;
+  --color-item-2: #3a7d44ff;
+  --color-item-3: #1a381eff;
+  --color-text-1: #000;
+  --color-text-2: #3a7d44ff;
+  --color-text-3: #1a381eff;
+
+
+
+  --ownColor0: #f2f8f3ff;
+  --ownColor1: #d6eadcff;
+  --ownColor2: #bbddc3ff;
+  --ownColor3: #9fd0a9ff;
+  --ownColor4: #3a7d44ff;
+  --ownColor5: #27542dff;
+  --ownColor6: #1a381eff;
+  --textColor1: #000000;
+  scroll-behavior: smooth;
+}
+/***** General styles ******/
+html {
+  background-color: var(--color-bg-4);
+}
+body {
+  box-sizing: border-box;
+  background-color: var(--color-bg-2);
+  font-family: 'Montserrat', sans-serif;
+}
+.ownSection > h2 {
+  letter-spacing: 10px;
+  text-align: center;
+  text-transform: lowercase;
+  padding: 20px;
+  border-bottom: 3px solid var(--color-border-1);
+}
+p {
+  margin-bottom: 20px;
+}
+
+
+.ownInputField {
+  background-color: var(--color-bg-1);
+  border-color: var(--color-border-2);  
+}
+.ownInputField:focus {
+  border-color: var(--color-border-2);
+  box-shadow: 0px 0px 2px 2px var(--color-border-1);
+}
+.ownInputAddon {
+  background-color: var(--color-bg-2);
+  border-color: var(--color-border-2);
+}
+
+/****** Navbar styles ******/
+header #ownNavbar{ /* The whole bar */
+  background-color: var(--color-bg-4);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 10px solid var(--color-border-2);
+}
+header #ownNavbar .navbar-brand{
+  color: #000;
+  font-size: 2.5em;
+  font-weight: 900;
+  /*letter-spacing: 2px;*/
+  text-transform: uppercase;
+}
+header #ownNavbar .navbar-nav a{
+  color: var(--color-text-1);
+  font-size: 1.15em;
+  letter-spacing: 3.7px;
+  text-transform: lowercase;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+header #ownNavbar .navbar-nav a:hover{
+  background-color: var(--color-item-1);
+}
+
+/* Navbar menu button in xsmall */
+header #ownNavbar button.navbar-toggle{
+  background-color: var(--color-bg-4);
+  border-color: var(--color-border-2);
+  border-width: 1px;
+  box-shadow: 0px 0px 1px 1px var(--color-border-2);
+}
+header #ownNavbar button.navbar-toggle:hover {
+  background-color: var(--color-item-1);
+}
+header #ownNavbar button.navbar-toggle:active {
+  background-color: var(--color-item-0);
+}
+header #ownNavbar button.navbar-toggle:focus {
+  border-color: var(--color-border-2);
+  box-shadow: 0px 0px 2px 2px var(--color-border-1);
+}
+header #ownNavbar span.icon-bar{
+  background-color: var(--color-border-2);
+}
+
+/* Search bar */
+header #ownNavbar form .input-group{
+  /*width: 0px;
+  position: relative;
+  float: right;
+  not sure if needed*/
+}
+header #ownNavbar form input{
+  background-color: var(--color-bg-1);
+  border-color: var(--color-border-2);
+  /*border-radius: 10px 0px 0px 10px;*/
+}
+header #ownNavbar form input:focus{
+  transition: width 0.4s ease-in-out;
+  border-color: var(--color-border-2);
+  box-shadow: 0px 0px 2px 2px var(--color-border-1);
+
+  /*float: right;
+  width: 500px;*/
+}
+header #ownNavbar form button{
+  background-color: var(--color-bg-4);
+  border-color: var(--color-border-2);
+  /*border-radius: 0px 10px 10px 0px;*/
+}
+header #ownNavbar form button:active{
+  box-shadow: 0px 0px 2px 2px var(--color-border-1);
+}
+
+/* End of search bar */
+#widthIndicator{
+  height: 20px;
+  background-color: var(--color-border-1);
+}
+.manualMargin{
+  height: 70px;
+}
+/****** End of Navbar ******/
+
+/****** Jumbotron ******/
+#ownJumbo .jumbotron {
+  padding: 0 0 0 0;
+  position: relative;
+  border-radius: 0px;
+}
+#ownJumbo .jumbotron div {
+  padding-top: 15%;
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 10px;
+  text-align: center;
+  text-transform: lowercase;
+  text-shadow: 2px 2px 5px black;
+} 
+/****** End of Jumbotron ******/
+
+/****** News ******/
+
+#news article {
+  /*background-color: var(--color-bg-4); */
+  overflow-y: hidden;
+}
+#news h4 {
+  font-weight: 700;
+}
+#news p {
+  text-align: justify;
+}
+#news a {
+  color: var(--color-text-2);
+}
+#news a:hover{
+  color: var(--color-text-3);
+  text-decoration: none;
+}
+/****** End of news ******/
+
+/****** Gallery ******/
+#gallery-container{
+  padding: 0px;
+  height: auto;
+  background-color: var(--color-bg-3);
+}
+/****** End of Gallery ******/
+
+/****** Contact ******/
+#map-container {
+  background-color: var(--color-bg-3);
+  width: 100%;
+  position: relative;
+  padding-top: 56.25%;
+
+
+}
+#map-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#map-container + div {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  /*font-size: 11px;
+  line-height: 1.5
+  font-weight: normal;
+  color: #0078A8;
+  background-color: #fff;
+  opacity: 0.7;
+  position: relative;
+  z-index: 2;*/
+}
+
+/****** End of Contact ******/
+
+
+/****** Footer *******/
+footer{
+  border: none;
+  border-top: 10px solid var(--color-border-2);
+  background-color: var(--color-bg-4);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 0px;
+  text-align: center;
+}
+
+
+/*********** Large devices only ***********/
+@media (min-width: 1200px){
+  #ownJumbo .jumbotron {
+    background-image: url('../images/jumbotron_1200.jpg');
+    height: 512px;
+  }
+  #ownJumbo .jumbotron div {          
+    font-size: 6em;
+  }
+}
+
+/*********** Medium devices only ***********/
+@media (min-width: 992px) and (max-width: 1199px){
+  #ownJumbo .jumbotron {
+    background-image: url('../images/jumbotron_992.jpg');
+    height: 423px;
+  }
+  #ownJumbo .jumbotron div {
+    padding-top: 13%;
+    font-size: 5em;           
+  } 
+	
+}
+
+/*********** Small devices only ***********/
+@media (min-width: 768px) and (max-width: 991px){
+  	/* Search bar */
+  header #ownNavbar form{
+    width: 135px;
+    /*background-color: blue;*/
+  }
+  header #ownNavbar form .input-group{
+    width: 0px;
+    position: relative;
+    float: right;
+    /*background-color: red;*/
+  }
+  header #ownNavbar form input{
+    width: 80px;
+
+  }
+  header #ownNavbar form input:focus{
+    float: right;
+    width: 200px;
+  }
+  header #ownNavbar form button{
+
+  }
+  /* End of search bar */
+
+  #ownJumbo .jumbotron {
+    background-image: url('../images/jumbotron_768.jpg');
+    height: 328px;
+  }
+  #ownJumbo .jumbotron div {
+    padding-top: 13%;
+    font-size: 4em;
+  }     
+}
+
+/*********** Extra small devices only ***********/
+@media (max-width: 767px){
+  header #ownNavbar .navbar-brand{ /*Navbar-brand, make it align center*/
+    /*background-color: red;
+    margin: auto;*/
+  }
+  header #ownNavbar button.navbar-toggle{ /*Navbar button*/
+    /*float: left;
+    margin-left: 15px;*/
+  }
+  #ownJumbo .jumbotron div {
+    padding-top: 12%;
+    font-size: 6vw;
+  }
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  
+}
+
+/********** Except small devices **********/
+@media (min-width: 768px) {
+  #news article {
+    height: 450px;
+  }
+}
+
+/*--==[ Extract from w3.css ]==--*/
+.w3-btn,.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
+.w3-tooltip,.w3-display-container{position:relative}.w3-tooltip .w3-text{display:none}.w3-tooltip:hover .w3-text{display:inline-block}
+.w3-dropdown-hover:hover > .w3-button:first-child,.w3-dropdown-click:hover > .w3-button:first-child{background-color:#ccc;color:#000}
+.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
+.w3-bar .w3-button{white-space:normal}
+.w3-content,.w3-auto{margin-left:auto;margin-right:auto}.w3-content{max-width:980px}.w3-auto{max-width:1140px}
+@media (max-width:600px){.w3-dropdown-hover.w3-mobile,.w3-dropdown-hover.w3-mobile .w3-btn,.w3-dropdown-hover.w3-mobile .w3-button,.w3-dropdown-click.w3-mobile,.w3-dropdown-click.w3-mobile .w3-btn,.w3-dropdown-click.w3-mobile .w3-button{width:100%}}
+.w3-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
+.w3-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
+.w3-display-container:hover .w3-display-hover{display:block}.w3-display-container:hover span.w3-display-hover{display:inline-block}.w3-display-hover{display:none}
+.w3-left-align{text-align:left!important}.w3-right-align{text-align:right!important}.w3-justify{text-align:justify!important}.w3-center{text-align:center!important}
+.w3-button:hover{color:#000!important;background-color:#ccc!important}
+.w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}

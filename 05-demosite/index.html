@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Demosite</title>
+  <link rel="icon" href="./images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header>
+<nav id="ownNavbar" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+	<div class="navbar-header">
+	  <button id="ownNavButton" type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#ownNavbarCollapsible">
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>           
+	  </button>
+	  <a class="navbar-brand" href="index.html">Demosite</a>
+	</div><!--navbar-header-->
+
+	<div class="collapse navbar-collapse" id="ownNavbarCollapsible">
+      <ul class="nav navbar-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <form id="ownSearchBar" class="navbar-form navbar-right" action="#">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>      
+      </form>
+    </div><!--navbar-collapse-->
+  </div><!--container-->
+</nav>
+</header>
+
+<div style="height: 80px;"></div>
+<div id="ownMainContent" class="container">
+<!--p class="visible-xs-block" style="font-weight: bold;">The display width is extra-small</p>
+<p class="visible-sm-block" style="font-weight: bold;">The display width is small</p>
+<p class="visible-md-block" style="font-weight: bold;">The display width is medium</p>
+<p class="visible-lg-block" style="font-weight: bold;">The display width is large</p-->
+
+<section id="jumbo" class="ownSection">
+<div class="manualMargin"> </div>
+<div id="ownJumbo">
+  <div class="jumbotron">
+    <div>welcome<br></div>
+    <img src="images/jumbotron_1200.jpg" alt="Welcome" class="img-responsive visible-xs">  
+  </div>
+</div>
+</section>
+
+<section id="about" class="ownSection">
+<div class="manualMargin"> </div>
+<h2>About</h2>
+<div class="row">
+  <div class="col-sm-12">
+    <h4>What is this site?</h4>
+    <p>The main purpose of this site is to practice <b>HTML, CSS and JavaScript</b> skills learnt on from a course by Yaakov Chaikin on coursera.org. I also used <b>Bootstrap 3</b>, and I learned a lot from <b>w3schools.com</b> tutorials. It demonstrates my current knowledge, hence the name: <b>DEMOSITE.</b></p>
+  </div>
+
+  <div class="col-sm-12">
+    <h4>What can I do here?</h4>
+    <p>Not much, actually, since it doesn't have any backend. It is a <b>responsive</b>, you can try setting the width of the browser or perhaps open it from a phone. It might rearrange items and resize them. For example the about, news, gallery and contact buttons on the top will be hidden in a <b>dropdown menu</b> if the width of the browser is lower than 768 pixels. This dropdown menu does not disappear when you click on an item, I know. Please click on the menu button to close it. Another thing I am actually proud of is the <b>expanding search bar</b>. In small display width (between 768 and 991 pixels), there wasn't enough room for the searchbar. So if you click inside it, it will expand and hower over the menu buttons. Pretty cool, huh?</p>
+    <p>You can see some <b>news</b> articles, I tried to look for interesting and meaningful topics. The content was shamelessly stolen. The code for the <b>gallery</b> was also shamelessly copied from w3schools' "How to" section. I does not understand how it works right now, but to be honest I didn't even try to. The <b>contact</b> form at the bottom doesn't work either. I hope one day it will all work function as it should and I will receive tons of fascinating messages from Nigerian princes and hot local girls! I also added a <b>map</b>, and I decided to use OpenStreetMap. Why OpenStreetMap? Because screw Google, that's why. However I use Google Fonts, so my distrust towards that company doesn't make any sense, does it?</p>
+  </div>
+
+  <div class="col-sm-12">
+    <h4>Inspiration</h4>
+    <p>The site is also a tribute to the most glorius site ever uploaded to the internet: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a>. Did you know it's still available? I wonder what year it was created.</p>
+  </div>
+</div>
+</section>
+
+<section id="news" class="ownSection">
+<div class="manualMargin"> </div>
+<h2>News</h2>
+<div class="row">
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="./news/news-article-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article>
+
+  <!--article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="/news/news-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article>
+
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="/news/news-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article>
+
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="/news/news-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article>
+
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="/news/news-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article>
+
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="/news/news-1.html">
+    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
+    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+  </article-->
+</div><!--row-->
+</section>
+
+<section id="gallery" class="ownSection">
+<div class="manualMargin"> </div>
+<h2>Gallery</h2>
+<div class="row">
+  <p class="col-sm-12">The gallery does not work yet. I plan to use the Slideshow example from w3schools' 'How to' section.</p>
+</div>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+  <div class="w3-content w3-display-container">
+    <img class="mySlides" src="./images/gallery-image-1.jpg" style="width:100%">
+    <img class="mySlides" src="./images/gallery-image-2.jpg" style="width:100%">
+    <img class="mySlides" src="./images/gallery-image-3.jpg" style="width:100%">
+    <img class="mySlides" src="./images/gallery-image-4.jpg" style="width:100%">
+
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+  </div>
+
+  <!--div id="gallery-container" class = "col-sm-10 col-sm-offset-1">
+    <img src="./images/gallery-placeholder_975-lg.jpg" class="img-responsive">    
+  </div-->
+</div>
+</section>
+
+
+<section id="contact" class="ownSection">
+<div class="manualMargin"> </div>
+<h2>Contact</h2>
+<div class="row">
+  <div class="col-sm-6">
+    <p>Feel free to contact us any time! Unfortunately this page is not functioning yet, therefore you won't be able to submit your message.</p>
+    <p>In case you have an important message, please send it via mail to the following address, or bring it personally to the same address.</p>          
+    <ul style="list-style: none;">
+      <label>Address</label>
+      <address>1014 Budapest, Színház utca 5–9.</address>      
+      <label>Opening hours</label>
+      <li>Monday - Thursday: 8:00 - 18:00</li>
+      <li>Friday: 8:00 - 14:00</li>
+      <li>Saturday - Sunday: Closed</li>
+    </ul>       
+  </div>
+
+  <div class="col-sm-6">
+    <div id="map-container">
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=19.03515458106995%2C47.497502743225574%2C19.04017567634583%2C47.50002158567144&amp;layer=mapnik&amp;marker=47.49876217955342%2C19.037665128707886" style="border: 0px solid black"></iframe>
+    </div>
+    <div style="text-align: right;"><a href="https://www.openstreetmap.org/?mlat=47.49876&amp;mlon=19.03767#map=18/47.49876/19.03767">View Larger Map</a></div><br>
+    
+  </div>
+</div>
+<div class="row">
+  <form class = "form-horizontal col-sm-12">
+     <div class = "form-group">
+          <label for = "fullname" class = "col-sm-2 control-label">Full Name</label>
+          <div class = "col-sm-9">
+            <input type = "text" id = "fullname" class = "form-control ownInputField" placeholder = "e.g: John Smith or János Kovács" maxlength = "63">
+          </div>
+        </div>
+          
+        <div class = "form-group">
+          <label for = "mailaddress" class = "col-sm-2 control-label">E-mail Address</label>
+          <div class = "col-sm-9">
+            <div class = "input-group">
+              <input type = "text" id = "mailaddress" class = "form-control ownInputField" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
+              <span class = "input-group-addon ownInputAddon">@</span>
+            </div>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <label for = "age" class = "col-sm-2 control-label">Age</label>
+          <div class = "col-sm-9">
+            <select id = "age" class = "form-control ownInputField">
+              <option>0 - 17</option>
+              <option>18 - 49</option>
+              <option>50 -</option>              
+            </select>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <label for = "message" class = "col-sm-2 control-label">Message</label>
+          <div class = "col-sm-9">
+            <textarea id = "message" rows = "6" class = "form-control ownInputField" placeholder = "Enter your message here..." maxlength = "10000" style = "resize: vertical; overflow-y: auto;"></textarea>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-9">
+            <div class = "checkbox">
+              <label><input type = "checkbox" class= "ownInputField">I understand this function does not work and my message will not be sent.</label>
+            </div>
+          </div>
+        </div>
+
+        <div class = "form-group">
+          <div class = "col-sm-offset-2 col-sm-2">
+            <button type="button" class ="btn btn-block" style="background-color: var(--ownColor3); font-weight: bold;">Send</button>
+          </div>
+        </div>
+  </form>
+
+</div>
+</section>
+
+</div><!--#ownMainContent-->
+
+<footer>
+  <h6>We do not use cookies. We do not store your personal data. We do not track you.<br>It's not as if we knew how to.</h6>
+  <h6>&copy; 2021 NGX</h6>  
+</footer>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

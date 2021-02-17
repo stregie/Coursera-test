@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Navbar elements</title>
+   <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">   
+   <link href = "css/bootstrap.min.css" rel = "stylesheet">
+   <script src = "https://code.jquery.com/jquery.js"></script>
+   <script src = "js/bootstrap.min.js"></script>
+   
+   <style>
+      /*https://coolors.co/d6eadc-bbddc3-9fd0a9-6da777-3a7d44-27542d-1a381e*/
+      body {
+        box-sizing: border-box;
+        background-color: #D6EADC;
+      }
+      p {
+        text-align: justify;        
+      }
+
+      #ownJumbo .jumbotron {
+      padding: 0 0 0 0;
+      position: relative;
+      border-radius: 0px;
+      }
+      #ownJumbo .jumbotron div {
+      padding-top: 15%;
+      position: absolute;
+      width: 100%;
+      color: #fff;
+      letter-spacing: 10px;
+      text-align: center;
+      text-transform: lowercase;
+      text-shadow: 2px 2px 5px black;
+      }
+
+      @media (min-width: 1200px) {
+        #ownJumbo .jumbotron {
+          background-image: url('./images/11_jumbotron_1200.jpg');
+          height: 512px;
+        }
+        #ownJumbo .jumbotron div {          
+          font-size: 6em;
+        }
+      }
+
+      @media (min-width: 992px) and (max-width: 1199px) {
+        #ownJumbo .jumbotron {
+          background-image: url('./images/11_jumbotron_992.jpg');
+          height: 423px;
+        }
+        #ownJumbo .jumbotron div {
+          padding-top: 13%;
+          font-size: 5em;           
+        }        
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+        #ownJumbo .jumbotron {
+          background-image: url('./images/11_jumbotron_768.jpg');
+          height: 328px;
+        }
+        #ownJumbo .jumbotron div {
+          padding-top: 13%;
+          font-size: 4em;
+        }       
+      }
+
+      @media (max-width: 767px) {
+        #ownJumbo .jumbotron div {
+          padding-top: 12%;
+          font-size: 6vw;
+        }
+      }
+
+   </style>
+</head>
+
+<body>
+<div id="ownJumbo" class = "container">
+<div class="jumbotron">
+  <div>Welcome</div>
+   <img src="images/11_jumbotron_1200.jpg" alt="Welcome" class="img-responsive visible-xs">  
+</div>
+
+
+<h2>The Body</h2>
+<div class = "row">
+  <div class = "col-sm-6 col-md-6 col-lg-6">
+    <h4>Column 1</h4>
+    <p>Quisque facilisis leo eget odio convallis dictum. Phasellus porttitor eros sed dolor dapibus dignissim. Donec at nisi risus. Morbi at eleifend est, sit amet vehicula elit. Phasellus in sagittis arcu, nec auctor risus. Sed diam lectus, sagittis nec mauris sit amet, semper sollicitudin mauris. In leo velit, eleifend at tellus id, porta ultrices est. Nunc a massa molestie, posuere orci ut, dapibus leo. Nullam tristique eleifend est at egestas.</p>
+  </div>
+  <div class = "col-sm-6 col-md-6 col-lg-6">
+    <h4>Column 2</h4>
+    <p>Maecenas gravida nunc ligula, nec placerat elit fermentum eu. Maecenas felis quam, consectetur ut maximus ut, pretium sit amet felis. Proin faucibus lorem eget vulputate posuere. Ut dui augue, porttitor at nisl at, viverra consequat libero. Aliquam erat volutpat. Nulla pulvinar lectus velit. Cras eu purus sit amet risus tincidunt mollis eget vitae ipsum. Nunc sed sem libero. </p>
+  </div>
+</div>
+</body>
+</html>
