@@ -16,7 +16,7 @@
 <body>
 <header>
 <nav id="ownNavbar" class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+<div class="container">
 	<div class="navbar-header">
 	  <button id="ownNavButton" type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#ownNavbarCollapsible">
 	    <span class="icon-bar"></span>
@@ -24,157 +24,182 @@
 	    <span class="icon-bar"></span>           
 	  </button>
 	  <a class="navbar-brand" href="index.html">Demosite</a>
-	</div><!--navbar-header-->
+	</div>
 
 	<div class="collapse navbar-collapse" id="ownNavbarCollapsible">
-      <ul class="nav navbar-nav">
-        <li><a href="#about">About</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <form id="ownSearchBar" class="navbar-form navbar-right" action="#">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
-          </div>
-        </div>      
-      </form>
-    </div><!--navbar-collapse-->
-  </div><!--container-->
+    <ul class="nav navbar-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <form id="ownSearchBar" class="navbar-form navbar-right" action="#">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>      
+    </form>
+  </div>
+</div>
 </nav>
 </header>
 
-<div style="height: 80px;"></div>
-<div id="ownMainContent" class="container">
-<!--p class="visible-xs-block" style="font-weight: bold;">The display width is extra-small</p>
-<p class="visible-sm-block" style="font-weight: bold;">The display width is small</p>
-<p class="visible-md-block" style="font-weight: bold;">The display width is medium</p>
-<p class="visible-lg-block" style="font-weight: bold;">The display width is large</p-->
+
+<div id="main-content" class="container">
 
 <section id="jumbo" class="ownSection">
-<div class="manualMargin"> </div>
-<div id="ownJumbo">
+<div class="extra-margin-top"> </div>
+<div class="extra-margin-top"> </div>
+<div class="jumbotron-container">
   <div class="jumbotron">
-    <div>welcome<br></div>
-    <img src="images/jumbotron_1200.jpg" alt="Welcome" class="img-responsive visible-xs">  
+    <div class="jumbotron-image"><div class="jumbotron-title">Welcome</div><div class="jumbotron-subtitle">To my site</div></div>
   </div>
 </div>
 </section>
 
 <section id="about" class="ownSection">
-<div class="manualMargin"> </div>
+<div class="extra-margin-top"> </div>
 <h2>About</h2>
 <div class="row">
   <div class="col-sm-12">
-    <h4>What is this site?</h4>
-    <p>The main purpose of this site is to practice <b>HTML, CSS and JavaScript</b> skills learnt on from a course by Yaakov Chaikin on coursera.org. I also used <b>Bootstrap 3</b>, and I learned a lot from <b>w3schools.com</b> tutorials. It demonstrates my current knowledge, hence the name: <b>DEMOSITE.</b></p>
+    <h4>What is this?</h4>
+    <p>The main purpose of this site is to practice <b>HTML, CSS and JavaScript</b> skills learnt from a course by Yaakov Chaikin on coursera.org. I also used <b>Bootstrap 3</b>, and I learned a lot from <b>w3schools.com</b> tutorials. It demonstrates my current knowledge, hence the name: <b>DEMOSITE.</b></p>
   </div>
 
   <div class="col-sm-12">
     <h4>What can I do here?</h4>
-    <p>Not much, actually, since it doesn't have any backend. It is a <b>responsive</b>, you can try setting the width of the browser or perhaps open it from a phone. It might rearrange items and resize them. For example the about, news, gallery and contact buttons on the top will be hidden in a <b>dropdown menu</b> if the width of the browser is lower than 768 pixels. This dropdown menu does not disappear when you click on an item, I know. Please click on the menu button to close it. Another thing I am actually proud of is the <b>expanding search bar</b>. In small display width (between 768 and 991 pixels), there wasn't enough room for the searchbar. So if you click inside it, it will expand and hower over the menu buttons. Pretty cool, huh?</p>
-    <p>You can see some <b>news</b> articles, I tried to look for interesting and meaningful topics. The content was shamelessly stolen. The code for the <b>gallery</b> was also shamelessly copied from w3schools' "How to" section. I does not understand how it works right now, but to be honest I didn't even try to. The <b>contact</b> form at the bottom doesn't work either. I hope one day it will all work function as it should and I will receive tons of fascinating messages from Nigerian princes and hot local girls! I also added a <b>map</b>, and I decided to use OpenStreetMap. Why OpenStreetMap? Because screw Google, that's why. However I use Google Fonts, so my distrust towards that company doesn't make any sense, does it?</p>
-  </div>
-
-  <div class="col-sm-12">
-    <h4>Inspiration</h4>
-    <p>The site is also a tribute to the most glorius site ever uploaded to the internet: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a>. Did you know it's still available? I wonder what year it was created.</p>
+    <p>Not much, actually, since it doesn't have any backend. It is <b>responsive</b>, you can try setting the width of the browser or perhaps open it from a phone. It might rearrange items and resize them. For example the about, news, gallery and contact buttons on the top will be hidden in a <b>dropdown menu</b> if the width of the browser is lower than 768 pixels. This dropdown menu does not disappear when you click on an item, I know. Please click on the menu button to close it. One thing I am proud of is the <b>expanding search bar</b>. In small display width (between 768 and 991 pixels), there wasn't enough room for the searchbar. So if you click inside it, it will expand and hover over the menu buttons. Pretty cool, huh?</p>
+    <p>You can see some <b>news</b> articles too. The content was shamelessly stolen. The code for the <b>gallery</b> was also shamelessly copied from w3schools' "How to" section. I do not understand how it works right now, but to be honest I didn't even try to. But I will soon! The <b>contact</b> form at the bottom doesn't work either. I hope one day it will all work function as it should and I will receive tons of fascinating messages from Nigerian princes and hot local girls! I also added a <b>map</b>, and I decided to use OpenStreetMap. Why OpenStreetMap? Because screw Google, that's why. However I use Google Fonts, so my distrust towards that company doesn't make any sense, does it?</p>
   </div>
 </div>
 </section>
 
 <section id="news" class="ownSection">
-<div class="manualMargin"> </div>
+<div class="extra-margin-top"> </div>
 <h2>News</h2>
 <div class="row">
   <article class="col-sm-6 col-md-4 col-lg-4">
     <a href="./news/news-article-1.html">
     <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
     <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="./news/news-article-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
-  </article>
-
-  <!--article class="col-sm-6 col-md-4 col-lg-4">
-    <a href="/news/news-1.html">
-    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
-    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+    <a href="./news/news-article-1.html"><h4>Top 3 alpine roads in Europe</h4></a>
+    <p>A collection by Tour1, a team of Harley-Davidson Motorcycle Tour organizers.</p>
   </article>
 
   <article class="col-sm-6 col-md-4 col-lg-4">
-    <a href="/news/news-1.html">
-    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
-    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+    <a href="./news/news-article-2.html">
+    <img src="./images/news-2_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-2_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-2.html"><h4>Architecture for all</h4></a>
+    <p>For the third time Open House Zurich is opening doors to visitors to take free architectural tours of our city. The event will take place on September 29 and 30</p>
   </article>
 
   <article class="col-sm-6 col-md-4 col-lg-4">
-    <a href="/news/news-1.html">
-    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
-    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+    <a href="./news/news-article-3.html">
+    <img src="./images/news-3_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-3_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-3.html"><h4>Identify The Best Laptop For Music Production Of 2018</h4></a>
+    <p>Choosing the right model for your purposes is not necessarily simple. Comparing the numbers sometimes just not enough, especially if you are a music producer. Don't worry. We're here to help!</p>
   </article>
 
   <article class="col-sm-6 col-md-4 col-lg-4">
-    <a href="/news/news-1.html">
-    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
-    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
+    <a href="./news/news-article-4.html">
+    <img src="./images/news-4_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-4_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-4.html"><h4>Decrease in Solar Energy Costs</h4></a>
+    <p>Solar energy costs have decreased drastically over the last 10 years proving that solar energy is the wave of the future</p>
   </article>
 
   <article class="col-sm-6 col-md-4 col-lg-4">
-    <a href="/news/news-1.html">
-    <img src="./images/news-1_720.jpg" class="img-responsive visible-xs"> 
-    <img src="./images/news-1_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
-    <a href="/news/news-1.html"><h4>Road curve increased by Austrian authorities</h4></a>
-    <p>Austrian authorities have increased the curvature of roads both countryside and in the city. People who like sharp turns are outraged. Our correspondant Fred Johnson reports from Vienna.</p>
-  </article-->
+    <a href="./news/news-article-5.html">
+    <img src="./images/news-5_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-5_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-5.html"><h4>Norway seeks to decriminalise recreational drug use</h4></a>
+    <p>Norway's government on Friday proposed a bill aimed at decriminalising the possession and use of small amounts of narcotics, saying users should be offered treatment rather than face jail.</p>
+  </article>
+
+  <article class="col-sm-6 col-md-4 col-lg-4">
+    <a href="./news/news-article-6.html">
+    <img src="./images/news-6_720.jpg" class="img-responsive visible-xs"> 
+    <img src="./images/news-6_360.jpg" class="img-responsive visible-sm visible-md visible-lg"></a>
+    <a href="./news/news-article-6.html"><h4>Eight tips to manage your mental health over the holidays</h4></a>
+    <p>Experts from University of Toronto and elsewhere say there are still many things you can do to find balance and care for your mental well-being over the holidays. Here are just a few tips. Watch our Youtube videos!</p>
+  </article>
 </div><!--row-->
 </section>
 
 <section id="gallery" class="ownSection">
-<div class="manualMargin"> </div>
+<div class="extra-margin-top"> </div>
 <h2>Gallery</h2>
 <div class="row">
-  <p class="col-sm-12">The gallery does not work yet. I plan to use the Slideshow example from w3schools' 'How to' section.</p>
-</div>
-<div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
-  <div class="w3-content w3-display-container">
-    <img class="mySlides" src="./images/gallery-image-1.jpg" style="width:100%">
-    <img class="mySlides" src="./images/gallery-image-2.jpg" style="width:100%">
-    <img class="mySlides" src="./images/gallery-image-3.jpg" style="width:100%">
-    <img class="mySlides" src="./images/gallery-image-4.jpg" style="width:100%">
+  <div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="w3-content w3-display-container">
 
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-  </div>
-  </div>
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-01.jpg" style="width:100%">
+        <div class="custom-caption"><div>Íme egy kép a bal kezemről<br><br>A picture of my left hand</div></div>
+      </div>
 
-  <!--div id="gallery-container" class = "col-sm-10 col-sm-offset-1">
-    <img src="./images/gallery-placeholder_975-lg.jpg" class="img-responsive">    
-  </div-->
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-02.jpg" style="width:100%">
+        <div class="custom-caption"><div>És egy a jobbról sütemény elvétele közben<br><br>And the right one while picking a piece of cookie</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-03.jpg" style="width:100%">
+        <div class="custom-caption"><div>Margarin a konyhaasztalon<br><br>Margarine on the kitchen table</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-04.jpg" style="width:100%">
+        <div class="custom-caption"><div>Virágzó fa a kertben<br><br>Blooming tree in the garden</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-05.jpg" style="width:100%">
+        <div class="custom-caption"><div>Egy barátom füle<br><br>Single ear of a friend</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-06.jpg" style="width:100%">
+        <div class="custom-caption"><div>Vonatsínek Esztergom közelében<br><br>Railway tracks near Esztergom</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-07.jpg" style="width:100%">
+        <div class="custom-caption"><div>Egy barátom zongorázik<br><br>A friend playing piano</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-08.jpg" style="width:100%">
+        <div class="custom-caption"><div>Pszichedelikus emberkék<br><br>Psychedelic people</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-09.jpg" style="width:100%">
+        <div class="custom-caption"><div>Ki nem ismerné: e galéria egy tiszteletadás az internetre valaha feltöltött legnagyszerűbb site előtt: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a><br><br>For those who never heard of it: this site is a tribute to the most glorious site ever uploaded to the internet: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a></div></div>
+      </div>
+  
+      <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+  </div>
 </div>
 </section>
 
 
 <section id="contact" class="ownSection">
-<div class="manualMargin"> </div>
+<div class="extra-margin-top"> </div>
 <h2>Contact</h2>
 <div class="row">
   <div class="col-sm-6">
     <p>Feel free to contact us any time! Unfortunately this page is not functioning yet, therefore you won't be able to submit your message.</p>
     <p>In case you have an important message, please send it via mail to the following address, or bring it personally to the same address.</p>          
-    <ul style="list-style: none;">
+    <ul>
       <label>Address</label>
       <address>1014 Budapest, Színház utca 5–9.</address>      
       <label>Opening hours</label>
@@ -188,33 +213,34 @@
     <div id="map-container">
       <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=19.03515458106995%2C47.497502743225574%2C19.04017567634583%2C47.50002158567144&amp;layer=mapnik&amp;marker=47.49876217955342%2C19.037665128707886" style="border: 0px solid black"></iframe>
     </div>
-    <div style="text-align: right;"><a href="https://www.openstreetmap.org/?mlat=47.49876&amp;mlon=19.03767#map=18/47.49876/19.03767">View Larger Map</a></div><br>
-    
+    <div style="text-align: right;"><a href="https://www.openstreetmap.org/?mlat=47.49876&amp;mlon=19.03767#map=18/47.49876/19.03767" target="_blank">View Larger Map</a></div>    
   </div>
 </div>
+
+<div class="extra-margin-top"></div>
 <div class="row">
   <form class = "form-horizontal col-sm-12">
      <div class = "form-group">
-          <label for = "fullname" class = "col-sm-2 control-label">Full Name</label>
+          <label for = "fullname-field" class = "col-sm-2 control-label">Full Name</label>
           <div class = "col-sm-9">
-            <input type = "text" id = "fullname" class = "form-control ownInputField" placeholder = "e.g: John Smith or János Kovács" maxlength = "63">
+            <input type = "text" id = "fullname-field" class = "form-control ownInputField" placeholder = "e.g: John Smith or János Kovács" maxlength = "63">
           </div>
         </div>
           
         <div class = "form-group">
-          <label for = "mailaddress" class = "col-sm-2 control-label">E-mail Address</label>
+          <label for = "mailaddress-field" class = "col-sm-2 control-label">E-mail Address</label>
           <div class = "col-sm-9">
             <div class = "input-group">
-              <input type = "text" id = "mailaddress" class = "form-control ownInputField" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
+              <input type = "text" id = "mailaddress-field" class = "form-control ownInputField" placeholder = "e.g: john.smith@mail.com" maxlength = "63">
               <span class = "input-group-addon ownInputAddon">@</span>
             </div>
           </div>
         </div>
 
         <div class = "form-group">
-          <label for = "age" class = "col-sm-2 control-label">Age</label>
+          <label for = "age-dropdown" class = "col-sm-2 control-label">Age</label>
           <div class = "col-sm-9">
-            <select id = "age" class = "form-control ownInputField">
+            <select id = "age-dropdown" class = "form-control ownInputField">
               <option>0 - 17</option>
               <option>18 - 49</option>
               <option>50 -</option>              
@@ -223,9 +249,9 @@
         </div>
 
         <div class = "form-group">
-          <label for = "message" class = "col-sm-2 control-label">Message</label>
+          <label for = "message-field" class = "col-sm-2 control-label">Message</label>
           <div class = "col-sm-9">
-            <textarea id = "message" rows = "6" class = "form-control ownInputField" placeholder = "Enter your message here..." maxlength = "10000" style = "resize: vertical; overflow-y: auto;"></textarea>
+            <textarea id = "message-field" rows = "6" class = "form-control ownInputField" placeholder = "Enter your message here..." maxlength = "10000"></textarea>
           </div>
         </div>
 
@@ -239,7 +265,7 @@
 
         <div class = "form-group">
           <div class = "col-sm-offset-2 col-sm-2">
-            <button type="button" class ="btn btn-block" style="background-color: var(--ownColor3); font-weight: bold;">Send</button>
+            <button id="send-button" type="button" class ="btn btn-block">Send</button>
           </div>
         </div>
   </form>
@@ -277,3 +303,8 @@ function showDivs(n) {
 </html>
 
 <!-- browser-sync start --server --directory --files "**/*" -->
+<!--junk code-->
+<!--p class="visible-xs-block" style="font-weight: bold;">The display width is extra-small</p>
+<p class="visible-sm-block" style="font-weight: bold;">The display width is small</p>
+<p class="visible-md-block" style="font-weight: bold;">The display width is medium</p>
+<p class="visible-lg-block" style="font-weight: bold;">The display width is large</p-->
