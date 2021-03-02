@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body id="myBody">
+<style>
+  body{
+  	font-size: 15px;
+  	font-family: Arial, sans-serif;
+  }
+  hr{
+  	width: 500px;
+  	margin-bottom: 40px;
+  	margin-left: 0px;
+  }
+  .output{
+    border: 2px solid #080;
+    display: inline-block;
+    width: 80px;
+  }
+
+</style>
+
+<h2>02-Statements, Syntax, Comments, Variables</h2>
+<p>Output of function 1: <span class="output" id="span1">result</span></p>
+<!-- <button type="button" onclick="f1(5, 7)">Do it!</button> -->
+
+<script>
+//styles
+  // getElementByClassName("output").style.border = '2px solid #080';
+  // getElementByClassName("output").style.display = 'inline-block';
+  // getElementByClassName("output").style.color = '#F00';
+  // getElementByClassName("output").style.width = '40px';
+	function pithagoras (a, b){
+		var c = 0;
+    c = (a ** 2 + b ** 2) ** 0.5;
+    document.getElementById("span1").innerHTML = c;
+  }
+  pithagoras (3,4);
+
+	
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

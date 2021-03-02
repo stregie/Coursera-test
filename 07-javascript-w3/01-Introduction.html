@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body id="myBody">
+<style>
+  body{
+  	font-size: 15px;
+  	font-family: Arial, sans-serif;
+  }
+  hr{
+  	width: 500px;
+  	margin-bottom: 40px;
+  	margin-left: 0px;
+  }
+</style>
+<script>
+	function f1Red(){
+		document.getElementById("demo4").style.color = '#F00';
+	}
+	function f1Black(){
+		document.getElementById("demo4").style.color = '#000';	
+	}
+</script>
+
+<h2>What Can JavaScript Do?</h2>
+<p>This file contains w3schools JS tutorial Introduction, Where To and Output chapters</p>
+<hr>
+
+<p id="demo1">JavaScript can change HTML content.</p>
+<button type="button" onclick='document.getElementById("demo1").innerHTML = "Hello JavaScript!"'>Hello</button>
+<button type="button" onclick='document.getElementById("demo1").innerHTML = "Good Bye JavaScript!"'>Good Bye</button>
+<hr>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+<button onclick="document.getElementById('myImage').src='images/01-pic_bulbon.gif'">Turn on the light</button>
+<img id="myImage" src="images/01-pic_bulboff.gif" style="width:100px">
+<button onclick="document.getElementById('myImage').src='images/01-pic_bulboff.gif'">Turn off the light</button>
+<hr>
+
+<p id="demo2">JavaScript can change the style of an HTML element.</p>
+<p>Text size: <button type="button" onclick="document.getElementById('demo2').style.fontSize='1em'">1em</button>
+<button type="button" onclick="document.getElementById('demo2').style.fontSize='2em'">2em</button></p>
+<p>Background Color: <button type="button" onclick="document.getElementById('myBody').style.backgroundColor='#aaa'">Grey</button>
+<button type="button" onclick="document.getElementById('myBody').style.backgroundColor='#fff'">White</button></p>
+<hr>
+
+<p id="demo3">JavaScript can hide or display an HTML element.</p>
+<button type="button" onclick="document.getElementById('demo3').style.display='none'">Hide</button>
+<button type="button" onclick="document.getElementById('demo3').style.display='block'">Show</button>
+<hr>
+
+<p id="demo4">JavaScript can put inside a script.</p>
+<button type="button" onclick="f1Red()">Red font</button>
+<button type="button" onclick="f1Black()">Black font</button>
+<hr>
+
+<p>Write a message to the console, to document, to alert window. Print the whole document</p>
+<button type="button" onclick="console.log('A message to the console')">To Console</button>
+<button type="button" onclick="document.write('It rewrites the whole document. Sorry')">To Document</button>
+<button type="button" onclick="window.alert('ALERT')">To Alert</button>
+<button type="button" onclick="window.print()">Print Page</button>
+
+
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

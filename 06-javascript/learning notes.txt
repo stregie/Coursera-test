@@ -1,0 +1,6 @@
+Lecture 40:
+-----------
+Script can be placed externally and internally. First external will be executed and internal secondly.
+Javascript: Single-threaded, sequential execution
+Can be placed in the head and body
+

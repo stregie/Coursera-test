@@ -75,6 +75,11 @@
     <p>Not much, actually, since it doesn't have any backend. It is <b>responsive</b>, you can try setting the width of the browser or perhaps open it from a phone. It might rearrange items and resize them. For example the about, news, gallery and contact buttons on the top will be hidden in a <b>dropdown menu</b> if the width of the browser is lower than 768 pixels. This dropdown menu does not disappear when you click on an item, I know. Please click on the menu button to close it. One thing I am proud of is the <b>expanding search bar</b>. In small display width (between 768 and 991 pixels), there wasn't enough room for the searchbar. So if you click inside it, it will expand and hover over the menu buttons. Pretty cool, huh?</p>
     <p>You can see some <b>news</b> articles too. The content was shamelessly stolen. The code for the <b>gallery</b> was also shamelessly copied from w3schools' "How to" section. I do not understand how it works right now, but to be honest I didn't even try to. But I will soon! The <b>contact</b> form at the bottom doesn't work either. I hope one day it will all work function as it should and I will receive tons of fascinating messages from Nigerian princes and hot local girls! I also added a <b>map</b>, and I decided to use OpenStreetMap. Why OpenStreetMap? Because screw Google, that's why. However I use Google Fonts, so my distrust towards that company doesn't make any sense, does it?</p>
   </div>
+
+  <div class="col-sm-12">
+    <h4>Inspiration</h4>
+    <p>This site is a tribute to the most glorious site ever uploaded to the internet with a similar purpose: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a></p>
+  </div>
 </div>
 </section>
 
@@ -153,36 +158,6 @@
         <img src="./images/gallery-image-03.jpg" style="width:100%">
         <div class="custom-caption"><div>Margarin a konyhaasztalon<br><br>Margarine on the kitchen table</div></div>
       </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-04.jpg" style="width:100%">
-        <div class="custom-caption"><div>Virágzó fa a kertben<br><br>Blooming tree in the garden</div></div>
-      </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-05.jpg" style="width:100%">
-        <div class="custom-caption"><div>Egy barátom füle<br><br>Single ear of a friend</div></div>
-      </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-06.jpg" style="width:100%">
-        <div class="custom-caption"><div>Vonatsínek Esztergom közelében<br><br>Railway tracks near Esztergom</div></div>
-      </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-07.jpg" style="width:100%">
-        <div class="custom-caption"><div>Egy barátom zongorázik<br><br>A friend playing piano</div></div>
-      </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-08.jpg" style="width:100%">
-        <div class="custom-caption"><div>Pszichedelikus emberkék<br><br>Psychedelic people</div></div>
-      </div>
-
-      <div class="w3-display-container mySlides">
-        <img src="./images/gallery-image-09.jpg" style="width:100%">
-        <div class="custom-caption"><div>Ki nem ismerné: e galéria egy tiszteletadás az internetre valaha feltöltött legnagyszerűbb site előtt: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a><br><br>For those who never heard of it: this site is a tribute to the most glorious site ever uploaded to the internet: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a></div></div>
-      </div>
   
       <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
       <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -258,7 +233,7 @@
         <div class = "form-group">
           <div class = "col-sm-offset-2 col-sm-9">
             <div class = "checkbox">
-              <label><input type = "checkbox" class= "ownInputField">I understand this function does not work and my message will not be sent.</label>
+              <label><input type = "checkbox" class= "ownInputField ownCheckBox">I understand this function does not work and my message will not be sent.</label>
             </div>
           </div>
         </div>
@@ -308,3 +283,33 @@ function showDivs(n) {
 <p class="visible-sm-block" style="font-weight: bold;">The display width is small</p>
 <p class="visible-md-block" style="font-weight: bold;">The display width is medium</p>
 <p class="visible-lg-block" style="font-weight: bold;">The display width is large</p-->
+
+  <!--div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-04.jpg" style="width:100%">
+        <div class="custom-caption"><div>Virágzó fa a kertben<br><br>Blooming tree in the garden</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-05.jpg" style="width:100%">
+        <div class="custom-caption"><div>Egy barátom füle<br><br>Single ear of a friend</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-06.jpg" style="width:100%">
+        <div class="custom-caption"><div>Vonatsínek Esztergom közelében<br><br>Railway tracks near Esztergom</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-07.jpg" style="width:100%">
+        <div class="custom-caption"><div>Egy barátom zongorázik<br><br>A friend playing piano</div></div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-08.jpg" style="width:100%">
+        <div class="custom-caption"><div>Pszichedelikus emberkék<br><br>Psychedelic people</div></div>
+      </div>      
+
+      <div class="w3-display-container mySlides">
+        <img src="./images/gallery-image-09.jpg" style="width:100%">
+        <div class="custom-caption"><div>Ki nem ismerné: e galéria egy tiszteletadás az internetre valaha feltöltött legnagyszerűbb site előtt: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a><br><br>For those who never heard of it: this site is a tribute to the most glorious site ever uploaded to the internet: <a href="http://magno.web.elte.hu/" target="_blank">magno.web.elte.hu</a></div></div>
+      </div-->

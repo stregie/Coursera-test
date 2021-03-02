@@ -38,6 +38,14 @@ body{
   background-color: var(--color-bg-2);
   font-family: 'Montserrat', sans-serif;
 }
+a{
+  color: var(--color-text-2);
+  font-weight: bold;
+}
+a:hover{
+  color: var(--color-text-3);
+  text-decoration: none;
+}
 
 /****** Navbar ******/
 header #ownNavbar{ /* The whole bar */
@@ -57,6 +65,7 @@ header #ownNavbar .navbar-brand{ /* The brand logo */
 header #ownNavbar .navbar-nav a{ /* Menu items */
   color: var(--color-text-1);
   font-size: 1.15em;
+  font-weight: normal;
   letter-spacing: 3.7px;
   text-transform: lowercase;
   padding-left: 10px;
@@ -187,7 +196,28 @@ p {
   }    
 }
 
-/****** Gallery ******/
+/****** News Section ******/
+#news article{
+  /*background-color: var(--color-bg-4);*/
+  overflow-y: hidden;
+}
+#news h4{
+  font-weight: 700;
+}
+#news a{
+  color: var(--color-text-2);
+}
+#news a:hover{
+  color: var(--color-text-3);
+  text-decoration: none;
+}
+@media (min-width: 768px){ /* Except small device */
+  #news article{
+    height: 450px;
+  }
+}
+
+/****** Gallery Section ******/
 .mySlides{
   display:none;
 }
@@ -202,7 +232,7 @@ p {
   letter-spacing: 0.7px;
 }
 
-/****** Contact ******/
+/****** Contact Section ******/
 .ownInputField {
   background-color: var(--color-bg-1);
   border-color: var(--color-border-2);  
@@ -229,8 +259,15 @@ p {
   left: 0;
   z-index: 1;
 }
-#map-container + div{
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;  
+#map-container + div a{
+  color: #337ab7;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 14px;  
+  font-weight: normal;
+}
+#map-container + div a:hover{
+  color: #23527c;
+  text-decoration: underline;  
 }
 #contact ul{
   list-style: none;
@@ -240,30 +277,13 @@ p {
   resize: vertical;
   overflow-y: auto;
 }
+
 #send-button{
-  background-color: var(--color-item-2); font-weight: bold;
+  background-color: var(--color-item-2);
+  font-weight: bold;
 }
 
-/****** News ******/
-#news article{
-  /*background-color: var(--color-bg-4);*/
-  overflow-y: hidden;
-}
-#news h4{
-  font-weight: 700;
-}
-#news a{
-  color: var(--color-text-2);
-}
-#news a:hover{
-  color: var(--color-text-3);
-  text-decoration: none;
-}
-@media (min-width: 768px){ /* Except small device */
-  #news article{
-    height: 450px;
-  }
-}
+
 
 /****** Footer *******/
 footer{
@@ -277,7 +297,7 @@ footer{
 }
 
 /*------------==[ Subpages ]==------------*/
-/******News article******/
+/****** News article ******/
 .article-bold-paragraph{
   font-weight: bold;
 }
@@ -291,18 +311,28 @@ footer{
 .image-container{
   margin-bottom: 30px;
 }
+.video-container{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.video-container::after{
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+.video-container iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 figcaption{
   font-size: 0.8em;
   font-weight: 600;
   color: #444;
   font-style: italic;
-}
-div.article a{
-  color: var(--color-text-2);
-  font-weight: bold;
-}
-div.article a:hover{
-  color: var(--color-text-3);
 }
 .article-source-paragraph{
   font-size: 0.9em;
@@ -337,28 +367,12 @@ div.article a:hover{
 .w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#00000066!important}
 
 /*******Junk*******/
-/*********** Large devices only ***********/
-@media (min-width: 1200px){
-  
-}
-
-/*********** Medium devices only ***********/
-@media (min-width: 992px) and (max-width: 1199px){
-    
-}
-
-/*********** Small devices only ***********/
-@media (min-width: 768px) and (max-width: 991px){
-  
-}
-
-/*********** Extra small devices only ***********/
-@media (max-width: 767px){
- 
-}
-
-/********** Except small devices **********/
-@media (min-width: 768px) {
+/*
+@media (min-width: 1200px){} (Large devices only)
+@media (min-width: 992px) and (max-width: 1199px){} (Medium devices only)    
+@media (min-width: 768px) and (max-width: 991px){} (Small devices only)
+@media (max-width: 767px){} (Extra small devices only)
+@media (min-width: 768px) {} (Except extra small devices)
 
 }
 /*
@@ -372,15 +386,3 @@ div.article a:hover{
     margin-left: 15px;
   }  
 }
-
-#map-container + div {  
-  font-size: 11px;
-  line-height: 1.5
-  font-weight: normal;
-  color: #0078A8;
-  background-color: #fff;
-  opacity: 0.7;
-  position: relative;
-  z-index: 2;
-}
-*/
