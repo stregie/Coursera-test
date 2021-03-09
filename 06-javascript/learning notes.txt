@@ -4,3 +4,6 @@ Script can be placed externally and internally. First external will be executed 
 Javascript: Single-threaded, sequential execution
 Can be placed in the head and body
 
+Lecture 45:
+-----------
+

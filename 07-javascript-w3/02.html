@@ -29,12 +29,31 @@
   // getElementByClassName("output").style.display = 'inline-block';
   // getElementByClassName("output").style.color = '#F00';
   // getElementByClassName("output").style.width = '40px';
-	function pithagoras (a, b){
-		var c = 0;
-    c = (a ** 2 + b ** 2) ** 0.5;
-    document.getElementById("span1").innerHTML = c;
-  }
-  pithagoras (3,4);
+	function f1(){
+		var car1 = {name: "Volvo", type: "XC60"};
+    var car2 = {name: "Volvo", type: "FH40"};
+    var car3 = {name: "Volvo", type: "FH40"};
+    var bike1 = "Merida";
+    var bike2 = "Merida";    
+    document.getElementById("span1").innerHTML = car2.type == car3.type;
+  };
+
+  function pithagoras(a,b){
+    return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+  };
+
+  function trypop(){
+    var arr = ["Zero", "One", "Two", "Three", "Four"];
+    var elementN = arr.pop();
+    var elementN_1 = arr.pop();
+    console.log(arr);
+    console.log(elementN);
+    console.log(elementN_1);
+  };
+  trypop();
+
+  
+
 
 	
 </script>

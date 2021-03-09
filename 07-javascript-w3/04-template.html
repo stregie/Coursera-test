@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+  html{
+    --color-bg-1: #BCE8F0;
+    --color-bg-2: #9BDCE9;
+    --color-border-1: #4F8492;
+    --color-border-2: #022B3A;
+    --color-item-1: #6DA2B0;
+    --color-text-1: #022B3A;
+    --color-text-2: #044962;
+    --color-text-3: #6DA2B0;
+  }
+  body{
+    box-sizing: border-box;
+    background-color: var(--color-bg-2);
+  	color: var(--color-text-1);
+    font-size: 15px;
+  	font-family: Verdana, sans-serif;    
+  }
+  h1{
+    border-bottom: 3px solid var(--color-border-1);
+    color: var(--color-text-1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+  #description{
+    margin-bottom: 40px;
+  }
+  p{
+    line-height: 120%;
+    text-align: justify;
+  }
+  .box-n-btn{
+    border: 2px solid var(--color-border-1);
+    border-radius: 10px;
+  }
+  .text-box{
+    background-color: var(--color-bg-1);
+    color: var(--color-text-2);
+    font-size: 0.8em;
+    font-family: Verdana, sans-serif;
+    overflow: auto;
+    padding: 6px 12px 6px 12px;
+    resize: none;
+    height: 306.4px;    
+  }
+  .text-box:focus{
+    border-color: var(--color-border-1);
+    box-shadow: 0px 0px 0px 0px #000;
+  }
+  .text-box::placeholder{
+    color: var(--color-text-3);
+  }
+  .text-box:focus::placeholder{
+    color: var(--color-text-3);
+  }
+  #function-button{
+    background-color: var(--color-border-1);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+  }
+  #function-button:active{
+    background-color: var(--color-item-1);
+    border: 2px solid var(--color-item-1);
+  }
+</style>
+
+<div id = "main-content" class = "container">
+  <div class = "row">
+    <h1 class = "col-sm-12">Title</h1>
+    <div id = "description" class = "col-sm-10 col-sm-offset-1">
+      <p>Description</p>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "col-sm-6">
+      <label>Input</label>
+      <textarea id = "input-box" class = "box-n-btn text-box form-control col-sm-6" placeholder = "Enter your message here..." rows = "16" maxlength = "10000"></textarea>
+    </div>
+
+    <div class = "col-sm-6">
+      <label>Result</label>
+      <div id = "result" class = "box-n-btn text-box"></div>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "function()">Function</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->
+<!-- https://coolors.co/022b3a-044962-4f8492-6da2b0-218397-9bdce9-bce8f0 -->

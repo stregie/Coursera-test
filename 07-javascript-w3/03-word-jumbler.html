@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Word Jumbler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+  html{
+    --color-bg-1: #BCE8F0;
+    --color-bg-2: #9BDCE9;
+    --color-border-1: #4F8492;
+    --color-border-2: #022B3A;
+    --color-item-1: #6DA2B0;
+    --color-text-1: #022B3A;
+    --color-text-2: #044962;
+    --color-text-3: #6DA2B0;
+  }
+  body{
+    box-sizing: border-box;
+    background-color: var(--color-bg-2);
+  	color: var(--color-text-1);
+    font-size: 15px;
+  	font-family: Verdana, sans-serif;    
+  }
+  h1{
+    border-bottom: 3px solid var(--color-border-1);
+    color: var(--color-text-1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+  p{
+    line-height: 120%;
+    text-align: justify;
+  }
+  .box-n-btn{
+    border: 2px solid var(--color-border-1);
+    border-radius: 10px;
+  }
+  .text-box{
+    background-color: var(--color-bg-1);
+    color: var(--color-text-2);
+    font-size: 0.8em;
+    font-family: Verdana, sans-serif;
+    margin-top: 40px;
+    overflow: auto;
+    padding: 6px 12px 6px 12px;
+    resize: none;
+    height: 306.4px;    
+  }
+  .text-box:focus{
+    border-color: var(--color-border-1);
+    box-shadow: 0px 0px 0px 0px #000;/*2px 2px var(--color-border-1);*/
+  }
+  .text-box::placeholder{
+    color: var(--color-text-3);
+  }
+  .text-box:focus::placeholder{
+    color: var(--color-text-3);
+  }
+  #jumble-button{
+    background-color: var(--color-border-1);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 2px;
+    margin-top: 40px;
+  }
+  #jumble-button:active{
+    background-color: var(--color-item-1);
+    border: 2px solid var(--color-item-1);
+  }
+</style>
+
+<div id = "main-content" class = "container">
+  <div class = "row">
+    <h1 class = "col-sm-12">Word Jumbler</h1>
+    <div class = "col-sm-10 col-sm-offset-1">
+      <p>"Egy anlgaii etegyem ktuasátai szenirt nem szimát melyin serenrodbn vnanak a bteűk egy szbóan, az etegyeln ftonos dloog, hogy az eslő és az ultosó bteűk a hölyeükn lneegyek. A tböbi bteű lheet tljees össze-vabisszásagn, mgiés porbléma nlkéül oalvsahtó a szveög. Eennk oka, hogy nem ovalusnk el mniedn bteűt mgaát, hneam a szót eszgébéen."</p>
+
+      <p>Source: <a href = "http://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/" target = "_blank">Cambridge University</a></p>
+
+      <p>Ezt az egyszerű JavaScript programot a fenti tanulmány ihlette. Kérlek írj be egy szöveget a első mezőbe, nyugodtan használj . , ! ? ; : karaktereket, más speciális karaktert lehetőleg ne. A gombra kattintva a második mezőben megjelenik az összekevert szöveg!</p>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "col-sm-6">
+    <textarea id = "input-box" class = "box-n-btn text-box form-control col-sm-6" placeholder = "Enter your message here..." rows = "16" maxlength = "10000"></textarea>
+    </div>
+
+    <div class = "col-sm-6">
+      <div id = "result" class = "box-n-btn text-box">Összekevert szöveg</div>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "jumble-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "jumble()">Jumble!</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function jumble(){
+    var x = "";
+    x = document.getElementById("input-box").value;
+    document.getElementById("result").innerHTML = jumbleText(x); 
+  };
+
+  function jumbleWord(origWord){
+    var letters = [];
+    var midLetters = [];
+    var firstLetter = "";
+    var lastLetter = "";
+    var rndMidLetters = [];
+    var jumbledWord = "";
+    var i = 0;
+
+    //  Words with nmt 3 letters can't be jumbled
+    if (origWord.length <= 3){ 
+      return origWord;
+    };
+    
+    //  Converts the word into an array of its letters
+    for (i = 0; i < origWord.length; i++){ 
+      letters[i] = origWord.substr(i,1);
+    };
+
+    //  Removes first and last letters, and store them in variables
+    firstLetter = letters.shift(); 
+    lastLetter = letters.pop();
+    
+    //  If a punctuation mark follows the word, remove that and add to a variable
+    if (lastLetter == "." || lastLetter == "," || lastLetter == "?" || lastLetter == "!" || lastLetter == ";" || lastLetter == ":"){
+      lastLetter = letters.pop() + lastLetter;
+    }; 
+     
+    //  Randomizes the inside of the word   
+    letters = letters.sort(function(a, b){return 0.5 - Math.random()}); 
+    
+    // Adds first, middle and last letters
+    jumbledWord = firstLetter;
+    for (i = 0; i < letters.length; i++){
+      jumbledWord += letters[i];
+    };
+    jumbledWord += lastLetter;
+
+    return jumbledWord;
+  };
+
+  function jumbleText(origText){
+    var jumbledText = "";
+    var wordArray = [];
+    var i = 0;
+
+    wordArray = origText.split(" "); // Spilts the text into single words.
+    
+    //  jumble each word
+    for (i = 0; i < wordArray.length; i++){
+      wordArray[i] = jumbleWord(wordArray[i]);
+    };
+     
+    //  Connect words, but do not add space to the last word
+    for (i = 0; i < wordArray.length; i++){
+      if (i < wordArray.length-1){
+        jumbledText += wordArray[i] + " ";
+      }
+      else
+      {
+        jumbledText += wordArray[i];
+      };
+    };
+
+    return jumbledText;
+  };
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->
+<!-- https://coolors.co/022b3a-044962-4f8492-6da2b0-218397-9bdce9-bce8f0 -->
