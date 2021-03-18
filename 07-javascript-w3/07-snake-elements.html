@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Snake elements</title>
+</head>
+<body>
+<style>
+	p{
+		margin-bottom: 2px;
+		margin-top: 0px;
+	}
+	h1{
+		margin-bottom: 5px;
+	}
+</style>
+
+<h1>Keyboard testing</h1>
+<p>Press A or D key</p>
+<p id="target1">Target field</p>
+<script>
+document.addEventListener('keydown', function(event) {
+  if (event.code == 'KeyA') {
+    document.getElementById('target1').innerHTML = 'A'; 
+  }
+  if (event.code == 'KeyD') {
+  	document.getElementById('target1').innerHTML = 'D'; 
+  }
+});
+</script>
+
+<h1>Keyboard testing 2</h1>
+<p>Press Q or E key</p>
+<p id="target1a">Target field</p>
+<script>
+document.addEventListener('keydown', fnKey)
+function fnKey(a){
+  if (a.code == 'KeyQ') {
+    document.getElementById('target1a').innerHTML = 'Q'; 
+  }
+  if (a.code == 'KeyE') {
+  	document.getElementById('target1a').innerHTML = 'E'; 
+  }
+};
+</script>
+
+
+<h1>Timer testing</h1>
+<p id = "target2">Target field 2</p>
+<button type = "button" onclick = "fnA()">start</button>
+<script>
+	function fnA(){
+		document.getElementById('target2').innerHTML = '0';
+		setTimeout(fnB, 1000);
+		function fnB(){
+			document.getElementById('target2').innerHTML = '1';
+		};
+	};
+</script>
+
+
+<h1>Set interval function</h1>
+<p>Reset timer with R button</p>
+<p>Timer, t1: <span id = "target3">Not started</span></p>
+<p>Timer, t10: <span id= "target4">Not started</span></p>
+<p>Variable a: <span id= "target5">Not started</span></p>
+<button type = "button" onclick = "fnC()">start</button>
+<script>
+	function fnC(){
+		var t1 = 0;
+		var t10 = 0;
+		var a = "";
+
+
+		setInterval(fnC1, 200);
+		function fnC1(){
+			document.addEventListener('keydown', function(event) {
+				if (event.code == 'KeyR') {
+				  t1=-1;
+				  a = "A was last effected by KeyR";
+				  console.log("KeyR");
+				}
+				if (event.code == 'KeyT') {
+				  t1=9;
+				}
+			});
+			document.getElementById('target5').innerHTML = a;
+			if (t1 >= 9){
+				t10++;
+				document.getElementById('target4').innerHTML = t10;
+				t1=0;
+			} else {
+				t1++;
+				a = "A was last effected at Else";				
+			}
+			document.getElementById('target3').innerHTML = t1;			
+		};
+	};
+</script>
+
+<h1>Nested intervals</h1>
+<p>Timer, t1: <span id = "target6">Not started</span></p>
+<p>Timer, t2: <span id= "target7">Not started</span></p>
+<p>This leads to stupid things. <b>Don't do that.</b></p>
+<button type = "button" onclick = "fnD()">start</button>
+<script>
+	function fnD(){
+		var t1 = 0;
+		var t2 = 0;
+
+		setInterval(fnD1, 200);
+		function fnD1(){
+			document.getElementById('target6').innerHTML = t1;
+			t1++;
+			setInterval(fnD2, 1000);
+			function fnD2(){
+				document.getElementById('target7').innerHTML = t2;
+				t2++
+			}
+		};
+	};
+</script>
+<h1>Random number</h1>
+<p>Orig random numbers <span id = "target8">Not started</span></p>
+<p>New random numbers <span id = "target8a">Not started</span></p>
+<!-- <p>New random number <span id = "target8b">Not started</span></p>
+<p>New random number <span id = "target8c">Not started</span></p> -->
+<button type = "button" onclick = "fnE()">start</button>
+<script>
+	function fnE(){
+		var i = 0;
+		var a = [0,1,2,3,4,5,6,7,8,9];
+		var b = [0,1,2,3,4,5,6,7,8,9];
+		var ra = 0;
+		var rb = 0;
+		var cond1 = false;
+		var cond1exit = 0;
+		var cond2 = false;
+		// ra = Math.floor(Math.random() * 10) + 1;
+		// rb = Math.floor(Math.random() * 10) + 1;
+		document.getElementById('target8').innerHTML = ra + ", "+ rb;
+
+		do{
+			cond1 == true;
+			ra = Math.floor(Math.random() * 9);
+			rb = Math.floor(Math.random() * 9);
+			for (i = 0; i < a.length; i++){
+				if (ra == a[i] && rb == b[i]){
+					console.log("r tagja a/b-nek " + ra + ", " + rb);
+					cond1 == false
+				}
+			}			
+		}
+		while(cond1 == true);
+		document.getElementById('target8a').innerHTML = ra + ", "+ rb;
+
+		// do {
+		// 	cond1exit++;
+		// 	if (cond1exit >= 100){
+		// 		cond1 = true;
+		// 	}
+		// }
+		// console.log("while condition finished");
+
+
+
+
+		
+		// while (cond1 == true){
+		// 	cond2 = true;
+		// 	a.forEach(function fnE1(value){				
+		// 		if (r == value){
+		// 			console.log("r tagja a-nak");
+		// 			cond2 = false;
+		// 		}
+		// 	});
+		// 	if(cond2 == false){
+		// 		r = Math.floor(Math.random() * 10) + 1;
+		// 	} else {
+		// 		cond1 = true;
+		// 	}
+		// }
+	}
+</script>
+
+</body>
+</html>
+
+
+
+<!-- browser-sync start --server --directory --files "**/*" -->
