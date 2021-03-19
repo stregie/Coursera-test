@@ -30,7 +30,7 @@
     border-bottom: 3px solid var(--color-border-1);
     color: var(--color-text-1);
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 10px;
     margin-bottom: 30px;
     padding: 10px;
     text-align: center;
@@ -48,7 +48,7 @@
     padding: 4px 9px 4px 9px;
   }
   .text-box{
-    border: 10px solid var(--color-border-1);
+    border: 3px solid var(--color-border-1);
     border-radius: 10px;
     background-color: var(--color-bg-1);
     color: var(--color-text-2);
@@ -87,16 +87,14 @@
 
 <div id = "main-content" class = "container">
   <div class = "row">
-    <h1 class = "col-sm-12">Snake</h1>
+    <h1 class = "col-sm-12">snake</h1>
     <div id = "description" class = "col-sm-10 col-sm-offset-1">
-      <p>A classic game of snake. Use the W, S, A, D keys to control the snake.</p>
-      <p>Score: <span id="sc">0</p>
+      <p>A classic game of snake. Use the W, S, A, D keys to control the snake. For test purposes you can also press G to make the snake grow or press F to replace the apple to a new random place. The site is not responsive, feel free to use the zoom funcion of the browser if it is too big or too small.</p><p>Your score is: <span id = "sc">0</span></p>
     </div>
   </div>
 
   <div class = "row">
     <div class = "col-sm-12">
-      <label>Canvas</label>
       <div class = "clearfix"></div>
       <canvas id = "canvas-box" class = "text-box" width = "1120" height = "440"></canvas>
     </div>
@@ -104,129 +102,142 @@
     <div class = "col-sm-12">
       <button type = "button" class = "box-n-btn function-button btn-block col-sm-12" onclick = "snakeGame()">start</button>
     </div>
-    <!-- <div class = "col-sm-12">
-      <button type = "button" class = "box-n-btn function-button btn-block col-sm-12" onclick = "snakeGame(1)">stop</button>
-    </div> -->
-
   </div>
 </div>
 
 <script>  
-  function snakeGame(){    
+  function snakeGame(){
+
+    // ---------[Declaration of global variables]--------- //
+
+    // Variables for the canvas. The top left corner of the canvas has 0,0 coordinate. The bottom right corner has (cnvrgt; cnvbtm)
     var canvas = document.getElementById("canvas-box");
     var ctx = canvas.getContext("2d");
-    var ups = 20; // upscale level 
+    var ups = 20; // upscale for one pixel 
     var cnvrgt = 1120 / ups; // canvas bottom
     var cnvbtm = 440 / ups; // canvas right
 
-    var onecyc = 5; // length of one cycle - to adjust speed of game. Min 2
-    var t = 0; // timer
-    var prev_t = t;
-    var dirx = 0, diry = 1; // direction of snake movement
-    var prev_dirx = -1, prev_diry = 0; // direction of snake movement in the previous cycle
+    // Variables for the timing.
+    var onecyc = 5; // length of one cycle - can be used adjust speed of game. Min 2
+    var t = 0; // Timer for each cycle (0 to onecyc)
+
+    // Variables for the position and direction of the snake
+    var dirx = 1, diry = 0; // direction of snake movement
+    var prev_dirx = 1, prev_diry = 0; // direction of snake movement in the previous cycle
     var snhx = 5, snhy = 5; // position of the head of the snake
-    var snx = [5,6,7,8,8,8,9,10]; // initial snake position
-    var sny = [5,5,5,5,4,3,3,3]; // initial snake position
-    var growth = 0;
-    var aplx = 12;
-    var aply = 12;
-    var appleFlag = false;
+    var snx = [5,4,3,2]; // initial snake position
+    var sny = [5,5,5,5]; // initial snake position
+    
+    // Variables related to apple
+    var growth = 0; // Initial value of growth. Set to higher number after an apple is eaten.
+    var aplx = 12, aply = 12; // Initial position of the apple
+    newApple(); //
+
+    // Initial score
     var score = 0;
 
-    drawWall(cnvrgt, cnvbtm);
-    
 
+
+
+    // ---------[The repeated cycle]--------- //
     var timer = setInterval(mainFn, 10);
-
     function mainFn(){    
-      document.addEventListener('keydown', reactToKey);
+      document.addEventListener('keydown', reactToKey); // Checks if any key was pressed. If yes, it might change the direction of the movement
          
       if (t < onecyc){
         t = t + 1;
-      } else {
-        snhx = snhx + dirx;
-        snhy = snhy + diry;
-        check180turn();
-        checkHitSn();
-        checkWall();
-        checkApple();
-        updateSn();
-        drawSn();
-        drawRedSq(aplx, aply);   
-        t = 0;
+      } else { // In case of a new cycle (new cycle starts if direction is changed or t reaches onecyc).
+        newSnHeadGhost(); // Places a ghost snake head to the position based on the direction.
+        check180turn();  // Prevents 180° turns (which would result in the snake immediate hitting itself)
+        checkHitSn();  // Checks if the new position would result in the snake hitting itself. If yes, it ends the game.
+        checkWall();  // Checks if the new position would result in hitting the wall. If yes, it ends the game.
+        checkApple();  // Checks if the new position would result in eating an apple. If yes, it places a new apple and grows the snake
+        updateSn();  // If nothing is hit, the position of the snake is updated to the new position.
+        drawSn();  // Clears the canvas and draws the new position of the snake.
+        drawRedSq(aplx, aply);  // Draws the apple after clearing the canvas.
+        t = 0; // Reset timer to start new cycle
       }
     };
+    // ------[End of the repeated cycle]------ //
 
-    // Functions to invoke
+
+
+
+    // ---------[Functions to invoke]--------- //    
     function reactToKey(k){
-      prev_dirx = dirx;
+      prev_dirx = dirx; // Stores the last direction before the keystroke.
       prev_diry = diry;
 
-      if (k.code == 'KeyW') { // move up
+      if (k.code == 'KeyW'){ // move up
         dirx = 0;
         diry = -1;
       }
-      if (k.code == 'KeyS') { // move down
+      if (k.code == 'KeyS'){ // move down
         dirx = 0;
         diry = 1;
       }
-      if (k.code == 'KeyA') { // move left
+      if (k.code == 'KeyA'){ // move left
         dirx = -1;
         diry = 0;
       }
-      if (k.code == 'KeyD') { // move right
+      if (k.code == 'KeyD'){ // move right
         dirx = 1;
         diry = 0;
       }
-      if (k.code == 'KeyG') { // grow snake SHOULD BE REMOVED FROM FINAL
+      if (k.code == 'KeyG'){ // grow snake - for test purposes
         growth = 3;
       }
-      if (k.code == 'KeyF') { // place new apple
+      if (k.code == 'KeyF'){ // place new apple - for test purposes
         newApple();
       }
 
-
+      // If snake turns, turn immediately, to assist zig-zag movements
+      // If a pressed key does not change direction, it won't step forward immediately to prevent jumping forward.
       if (prev_dirx != dirx && prev_diry != diry){
         t = onecyc;
-      } else {
-        console.log("forced forward"); // it also activates if g or f is pressed
-      }
-        
+      }        
     };
+
+    function newSnHeadGhost(){
+      snhx = snhx + dirx; 
+      snhy = snhy + diry;
+    };
+
     function checkHitSn(){
       let i = 0;
       for (i = 0; i < snx.length; i++){
         if (snhx == snx[i] && snhy == sny[i]){
-          clearInterval(timer);
-          alert("Game Over! Snake bit self");
+          console.log("Snake has hit itself");
+          gameOver();
         }
-      };
+      }
     };
+
     function checkWall(){
-      if (snhx == 0 || snhx == cnvrgt-1){
-        clearInterval(timer);
-        alert("Game Over! Wall hit!");
-      }
-      if (snhy == 0 || snhy == cnvbtm-1){
-        clearInterval(timer);
-        alert("Game Over! Wall hit!");
-      }
+      if (snhx == -1 || snhx == cnvrgt || snhy == -1 || snhy == cnvbtm){
+        console.log("Snake has hit a wall");
+        gameOver();
+      }      
     };
+
     function checkApple(){
       if (snhx == aplx && snhy == aply){
-        console.log("apple eaten");
         growth = 3;
         score++;
         document.getElementById('sc').innerHTML = score;
         newApple();        
+        console.log("Apple eaten");
       }
     };
+
     function check180turn(){
       if(snhx == snx[1] && snhy == sny[1]){
-        snhx = snhx - 2 * dirx;
+        snhx = snhx - 2 * dirx;        
         snhy = snhy - 2 * diry;
+        console.log("180° turn prevented");
       } 
-    };  
+    }; 
+
     function updateSn(){
       if (growth > 0){
         snx.unshift(snhx);
@@ -239,66 +250,78 @@
         sny.unshift(snhy);
       }
     };
+
     function drawSn(){    
       let i = 0;
       clearBg(cnvrgt, cnvbtm);
       for (i = 0; i < snx.length; i++){
         drawSq(snx[i], sny[i]);
-      };
-        // drawRedSq(snx[2], sny[2]);
+      }    
     };
+
     function drawSq(a, b){
       let x = a * ups;
       let y = b * ups;
       ctx.fillStyle = "#4F8492";
       ctx.fillRect(x, y, ups, ups);
     };
+
     function drawRedSq(a, b){
       let x = a * ups;
       let y = b * ups;
-      ctx.fillStyle = "#FF0000";
+      ctx.fillStyle = "#AD343E";
       ctx.fillRect(x, y, ups, ups);
     };
-    function drawWall(w, h){
-      let i = 0;
 
-      for (i = 0; i < w; i++) { // draw top and bottom wall
-        drawSq(i, 0);
-        drawSq(i, h - 1);  // Without -1 the top right pixel of the square would be on edge of canvas therefore square would be off canvas
-      }
-      for (i = 0; i < h; i++) { // draw left and right wall
-        drawSq(0, i);
-        drawSq(w-1, i); 
-      }
-    };
+
     function newApple(){
-      let cond1 = 0;
+      let cond = 0;
       let condexit = 0;
       let i = 0;
 
-      do {
-        cond1 = 0;      
-        aplx = Math.floor(Math.random() * (cnvrgt - 2)) + 1;
-        aply = Math.floor(Math.random() * (cnvbtm - 2)) + 1;
+      do { // Places apple to a new position. In case the apple spawns on the snake, a new position is generated
+        cond = 0;      
+        aplx = Math.floor(Math.random() * cnvrgt) + 0;
+        aply = Math.floor(Math.random() * cnvbtm) + 0;
+
         for (i = 0; i < snx.length; i++){
           if (aplx == snx[i] && aply == sny[i]){
-            console.log("The apple spawned on the snake");
-            cond1 == 1;
+            console.log("The apple spawned on the snake. New position generated.");
+            cond = 1;
           }
         }
-        condexit++;
-        if (condexit > 100){
+
+        condexit++; // Breaks the cycle in case of overflow. It stops the game.
+        if (condexit > 1000){
           clearInterval(timer);
           break;
         }
       }
-      while(cond1 == 1);
-    }
-    function clearBg(w, h){ // Screen should be cleared before every new drawSn(). Input: width and height in pixels
-      ctx.clearRect(0 + ups, 0 + ups, (w - 2) * ups, (h - 2) * ups); // -1 * ups is the wall which should not be cleared
+      while(cond != 0);
     };
-  };
 
+    function gameOver(){
+      alert("Game Over! Your final score is: " + score);
+      clearInterval(timer);     
+    };
+
+    function clearBg(w, h){ // Screen should be cleared before every new drawSn(). Input: width and height in coordinates.
+      ctx.clearRect(0, 0, w * ups, h * ups); // To regain pixels from the coordinates the coordinates should be multiplied by ups.
+    };
+
+    // function drawWall(w, h){
+    //   let i = 0;
+
+    //   for (i = 0; i < w; i++) { // draw top and bottom wall
+    //     drawSq(i, 0);
+    //     drawSq(i, h - 1);  // Without -1 the top right pixel of the square would be on edge of canvas therefore square would be off canvas
+    //   }
+    //   for (i = 0; i < h; i++) { // draw left and right wall
+    //     drawSq(0, i);
+    //     drawSq(w-1, i); 
+    //   }
+    // };
+  };
 </script>
 </body>
 </html>

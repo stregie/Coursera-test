@@ -133,24 +133,28 @@ function fnKey(a){
 		var ra = 0;
 		var rb = 0;
 		var cond1 = false;
-		var cond1exit = 0;
+		var condexit = 0;
 		var cond2 = false;
 		// ra = Math.floor(Math.random() * 10) + 1;
 		// rb = Math.floor(Math.random() * 10) + 1;
 		document.getElementById('target8').innerHTML = ra + ", "+ rb;
 
 		do{
-			cond1 == true;
+			cond1 = 0;
 			ra = Math.floor(Math.random() * 9);
 			rb = Math.floor(Math.random() * 9);
 			for (i = 0; i < a.length; i++){
 				if (ra == a[i] && rb == b[i]){
 					console.log("r tagja a/b-nek " + ra + ", " + rb);
-					cond1 == false
+					cond1 = 1;
 				}
-			}			
+			}
+	        condexit++;
+	        if (condexit > 100){
+	          break;
+	        }			
 		}
-		while(cond1 == true);
+		while(cond1 != 0);
 		document.getElementById('target8a').innerHTML = ra + ", "+ rb;
 
 		// do {
