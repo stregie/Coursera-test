@@ -107,123 +107,111 @@
 </div>
 
 <script>  
-  function snakeGame(){
+  function snakeGame() {
 
-    // ---------[Declaration of global variables]--------- //
+    const canvas = document.getElementById("canvas-box");
+    const ctx = canvas.getContext("2d");
+    const ups = 20; // upscale for one pixel 
+    const canvasRight = 1120 / ups;
+    const canvasBottom = 440 / ups;
 
-    // Variables for the canvas. The top left corner of the canvas has 0,0 coordinate. The bottom right corner has (cnvrgt; cnvbtm)
-    var canvas = document.getElementById("canvas-box");
-    var ctx = canvas.getContext("2d");
-    var ups = 20; // upscale for one pixel 
-    var cnvrgt = 1120 / ups; // canvas bottom
-    var cnvbtm = 440 / ups; // canvas right
+    const cycle = 5; // length of one cycle - can be used adjust speed of game. Min 2
+    let tick = 0;
 
-    // Variables for the timing.
-    var onecyc = 5; // length of one cycle - can be used adjust speed of game. Min 2
-    var t = 0; // Timer for each cycle (0 to onecyc)
-
-    // Variables for the position and direction of the snake
-    var dirx = 1, diry = 0; // direction of snake movement
-    var prev_dirx = 1, prev_diry = 0; // direction of snake movement in the previous cycle
-    var snhx = 5, snhy = 5; // position of the head of the snake
-    var snx = [5,4,3,2]; // initial snake position
-    var sny = [5,5,5,5]; // initial snake position
-    
-    // Variables related to apple
-    var growth = 0; // Initial value of growth. Set to higher number after an apple is eaten.
-    var aplx = 12, aply = 12; // Initial position of the apple
-    newApple(); //
-
-    // Initial score
-    var score = 0;
+    let score = 0;
     document.getElementById('sc').innerHTML = score;
 
+    // Snake
+    let dirx = 1, diry = 0; // direction of snake movement
+    let snake = [ [ 5, 5 ], [ 4, 5 ], [ 3, 5 ], [ 2, 5 ] ];
 
+    const isHit = ([ x, y ], [ x2, y2 ]) => x === x2 && y === y2;
+    const isHitBody = (coord) =>
+      snake.some((sCoord) => isHit(sCoord, coord))
 
+    const head = () => snake[0];
+    const ghost = () => {
+      const [ x, y ] = head();
+      return [ x + dirx, y + diry ];
+    };
 
-    // ---------[The repeated cycle]--------- //
-    var timer = setInterval(mainFn, 10);
-    function mainFn(){    
-      document.addEventListener('keydown', reactToKey); // Checks if any key was pressed. If yes, it might change the direction of the movement
-         
-      if (t < onecyc){
-        t++;
-      } else { // In case of a new cycle (new cycle starts if direction is changed or t reaches onecyc).
-        newSnHeadGhost(); // Places a ghost snake head to the position based on the direction.
-        check180Turn();  // Prevents 180° turns (which would result in the snake immediate hitting itself)
-        checkHitSn();  // Checks if the new position would result in the snake hitting itself. If yes, it ends the game.
-        checkHitWall();  // Checks if the new position would result in hitting the wall. If yes, it ends the game.
-        checkApple();  // Checks if the new position would result in eating an apple. If yes, it places a new apple and grows the snake
-        updateSn();  // If nothing is hit, the position of the snake is updated to the new position.
-        drawSn();  // Clears the canvas and draws the new position of the snake.
-        drawRedSq(aplx, aply);  // Draws the apple after clearing the canvas.
-        t = 0; // Reset timer to start new cycle
+    const checkHitSelf = () => {
+      if (isHitBody(ghost())) gameOver('Hit self');
+    };
+    const checkHitWall = () => {
+      const [ x, y ] = ghost();
+      if (x === -1 || x === canvasRight || y === -1 || y === canvasBottom) gameOver('Hit wall');
+    };
+    
+    // Apple
+    let growth = 0; // Initial value of growth. Set to higher number after an apple is eaten.
+    let apple = [ 12, 12 ];
+    const newApple = () => {
+      let regen = true;
+      while (regen) {
+        regen = false; 
+        apple = [ Math.floor(Math.random() * canvasRight), Math.floor(Math.random() * canvasBottom) ]
+        if(isHitBody(apple)) regen = true; // on snake, regenerate
       }
     };
-    // ------[End of the repeated cycle]------ //
+    newApple();
 
+    const handleKeyPress = (k) => {
+      const prevDirX = dirx; // Stores the last direction before the keystroke.
+      const prevDirY = diry;
 
-
-
-    // ---------[Functions to invoke]--------- //    
-    function reactToKey(k){
-      prev_dirx = dirx; // Stores the last direction before the keystroke.
-      prev_diry = diry;
-
-      if (k.code == 'KeyW'){ // move up
+      if (k.code === 'KeyW'){ // move up
         dirx = 0;
         diry = -1;
       }
-      if (k.code == 'KeyS'){ // move down
+      if (k.code === 'KeyS'){ // move down
         dirx = 0;
         diry = 1;
       }
-      if (k.code == 'KeyA'){ // move left
+      if (k.code === 'KeyA'){ // move left
         dirx = -1;
         diry = 0;
       }
-      if (k.code == 'KeyD'){ // move right
+      if (k.code === 'KeyD'){ // move right
         dirx = 1;
         diry = 0;
       }
-      if (k.code == 'KeyG'){ // grow snake - for test purposes
+      if (k.code === 'KeyG'){ // grow snake - for test purposes
         growth = 3;
       }
-      if (k.code == 'KeyF'){ // place new apple - for test purposes
+      if (k.code === 'KeyF'){ // place new apple - for test purposes
         newApple();
       }
 
       // If snake turns, turn immediately, to assist zig-zag movements
       // If a pressed key does not change direction, it won't step forward immediately to prevent jumping forward.
-      if (prev_dirx != dirx && prev_diry != diry){
-        t = onecyc;
+      if (prevDirX !== dirx && prevDirY !== diry){
+        tick = cycle;
       }        
     };
+    document.addEventListener('keydown', handleKeyPress);
 
-    function newSnHeadGhost(){
-      snhx = snhx + dirx; 
-      snhy = snhy + diry;
-    };
-
-    function checkHitSn(){
-      let i = 0;
-      for (i = 0; i < snx.length; i++){
-        if (snhx == snx[i] && snhy == sny[i]){
-          console.log("Snake has hit itself");
-          gameOver();
-        }
+    // Game loop
+    const mainFn = () => {
+      if (tick < cycle){
+        tick++;
+      } else { 
+        // new cycle starts if direction is changed or we reach max ticks
+        check180Turn();
+        checkHitSelf();
+        checkHitWall();
+        checkApple();
+        updateSnake();
+        drawSnake();
+        drawSq(apple, '#AD343E');
+        tick = 0; // New cycle
       }
     };
 
-    function checkHitWall(){
-      if (snhx == -1 || snhx == cnvrgt || snhy == -1 || snhy == cnvbtm){
-        console.log("Snake has hit a wall");
-        gameOver();
-      }      
-    };
+    const game = setInterval(mainFn, 10);
 
-    function checkApple(){
-      if (snhx == aplx && snhy == aply){
+    const checkApple = () => {
+      if (isHit(ghost(), apple)){
         growth = 3;
         score++;
         document.getElementById('sc').innerHTML = score;
@@ -232,83 +220,42 @@
       }
     };
 
-    function check180Turn(){
-      if(snhx == snx[1] && snhy == sny[1]){
-        snhx = snhx - 2 * dirx;        
-        snhy = snhy - 2 * diry;
-        console.log("180° turn prevented");
+    const check180Turn = () => {
+      if(isHit(ghost(),  snake[1])){
+        const [ x, y ] = head();
+        snake = [ [ x - 2 * dirX, y - 2 * dirY ], ...snake.shift() ] ;
       } 
     }; 
 
-    function updateSn(){
-      if (growth > 0){
-        snx.unshift(snhx);
-        sny.unshift(snhy);
+    const updateSnake = () => {
+      if (growth > 0) {
+        snake = [ ghost(), ...snake ];
         growth--;
       } else {
-        snx.pop();
-        sny.pop();
-        snx.unshift(snhx);
-        sny.unshift(snhy);
+        snake = [ ghost(), ...snake.slice(0, -1) ];
       }
     };
 
-    function drawSn(){    
-      let i = 0;
-      clearBg(cnvrgt, cnvbtm);
-      for (i = 0; i < snx.length; i++){
-        drawSq(snx[i], sny[i]);
-      }    
+    const drawSnake= () => {    
+      clearCanvas();
+      snake.forEach((coord) => drawSq(coord, '#4F8492'))
     };
 
-    function drawSq(a, b){
-      let x = a * ups;
-      let y = b * ups;
-      ctx.fillStyle = "#4F8492";
-      ctx.fillRect(x, y, ups, ups);
+    const drawSq = ([ x, y ], color) => {
+      ctx.fillStyle = color;
+      ctx.fillRect(x * ups, y * ups, ups, ups);
     };
 
-    function drawRedSq(a, b){
-      let x = a * ups;
-      let y = b * ups;
-      ctx.fillStyle = "#AD343E";
-      ctx.fillRect(x, y, ups, ups);
-    };
-
-
-    function newApple(){
-      let cond = 0;
-      let exitCond = 0;
-      let i = 0;
-
-      do { // Places apple to a new position. In case the apple spawns on the snake, a new position is generated.
-        cond = 0;      
-        aplx = Math.floor(Math.random() * cnvrgt) + 0;
-        aply = Math.floor(Math.random() * cnvbtm) + 0;
-
-        for (i = 0; i < snx.length; i++){
-          if (aplx == snx[i] && aply == sny[i]){
-            console.log("The apple spawned on the snake. New position generated.");
-            cond = 1;
-          }
-        }
-
-        exitCond++; // Breaks the cycle in case of overflow. It stops the game.
-        if (exitCond > 1000){
-          clearInterval(timer);
-          break;
-        }
-      }
-      while(cond != 0);
-    };
-
-    function gameOver(){
+    const gameOver = (reason) => {
+      console.log(reason);
       alert("Game Over! Your final score is: " + score);
-      clearInterval(timer);     
+      clearInterval(game);     
+      document.removeEventListener('keydown', handleKeyPress);
     };
 
-    function clearBg(w, h){ // Screen should be cleared before every new drawSn(). Input: width and height in coordinates.
-      ctx.clearRect(0, 0, w * ups, h * ups); // To regain pixels from the coordinates the coordinates should be multiplied by ups.
+    // Screen should be cleared before every new drawSn(). Input: width and height in coordinates.
+    const clearCanvas = () => { 
+      ctx.clearRect(0, 0, canvasRight * ups, canvasBottom * ups);
     };    
   };
 </script>
