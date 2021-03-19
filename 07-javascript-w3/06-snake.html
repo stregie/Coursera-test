@@ -89,14 +89,15 @@
   <div class = "row">
     <h1 class = "col-sm-12">snake</h1>
     <div id = "description" class = "col-sm-10 col-sm-offset-1">
-      <p>A classic game of snake. Use the W, S, A, D keys to control the snake. For test purposes you can also press G to make the snake grow or press F to replace the apple to a new random place. The site is not responsive, feel free to use the zoom funcion of the browser if it is too big or too small.</p><p>Your score is: <span id = "sc">0</span></p>
+      <p>A classic snake game. Use the W, S, A, D keys to control the snake. For test purposes you can also press G to make the snake grow or press F to reposition the apple to a new random place. The site is not responsive, feel free to use the zoom funcion of the browser if it is too big or too small.</p>
+      <p>Your score is: <span id = "sc">0</span></p>
     </div>
   </div>
 
   <div class = "row">
     <div class = "col-sm-12">
       <div class = "clearfix"></div>
-      <canvas id = "canvas-box" class = "text-box" width = "1120" height = "440"></canvas>
+      <canvas id = "canvas-box" class = "text-box" width = "1120" height = "440"></canvas> <!-- Canvas width and height should be dividable by 20 -->
     </div>
 
     <div class = "col-sm-12">
@@ -135,6 +136,7 @@
 
     // Initial score
     var score = 0;
+    document.getElementById('sc').innerHTML = score;
 
 
 
@@ -145,12 +147,12 @@
       document.addEventListener('keydown', reactToKey); // Checks if any key was pressed. If yes, it might change the direction of the movement
          
       if (t < onecyc){
-        t = t + 1;
+        t++;
       } else { // In case of a new cycle (new cycle starts if direction is changed or t reaches onecyc).
         newSnHeadGhost(); // Places a ghost snake head to the position based on the direction.
-        check180turn();  // Prevents 180° turns (which would result in the snake immediate hitting itself)
+        check180Turn();  // Prevents 180° turns (which would result in the snake immediate hitting itself)
         checkHitSn();  // Checks if the new position would result in the snake hitting itself. If yes, it ends the game.
-        checkWall();  // Checks if the new position would result in hitting the wall. If yes, it ends the game.
+        checkHitWall();  // Checks if the new position would result in hitting the wall. If yes, it ends the game.
         checkApple();  // Checks if the new position would result in eating an apple. If yes, it places a new apple and grows the snake
         updateSn();  // If nothing is hit, the position of the snake is updated to the new position.
         drawSn();  // Clears the canvas and draws the new position of the snake.
@@ -213,7 +215,7 @@
       }
     };
 
-    function checkWall(){
+    function checkHitWall(){
       if (snhx == -1 || snhx == cnvrgt || snhy == -1 || snhy == cnvbtm){
         console.log("Snake has hit a wall");
         gameOver();
@@ -230,7 +232,7 @@
       }
     };
 
-    function check180turn(){
+    function check180Turn(){
       if(snhx == snx[1] && snhy == sny[1]){
         snhx = snhx - 2 * dirx;        
         snhy = snhy - 2 * diry;
@@ -276,10 +278,10 @@
 
     function newApple(){
       let cond = 0;
-      let condexit = 0;
+      let exitCond = 0;
       let i = 0;
 
-      do { // Places apple to a new position. In case the apple spawns on the snake, a new position is generated
+      do { // Places apple to a new position. In case the apple spawns on the snake, a new position is generated.
         cond = 0;      
         aplx = Math.floor(Math.random() * cnvrgt) + 0;
         aply = Math.floor(Math.random() * cnvbtm) + 0;
@@ -291,8 +293,8 @@
           }
         }
 
-        condexit++; // Breaks the cycle in case of overflow. It stops the game.
-        if (condexit > 1000){
+        exitCond++; // Breaks the cycle in case of overflow. It stops the game.
+        if (exitCond > 1000){
           clearInterval(timer);
           break;
         }
@@ -307,20 +309,7 @@
 
     function clearBg(w, h){ // Screen should be cleared before every new drawSn(). Input: width and height in coordinates.
       ctx.clearRect(0, 0, w * ups, h * ups); // To regain pixels from the coordinates the coordinates should be multiplied by ups.
-    };
-
-    // function drawWall(w, h){
-    //   let i = 0;
-
-    //   for (i = 0; i < w; i++) { // draw top and bottom wall
-    //     drawSq(i, 0);
-    //     drawSq(i, h - 1);  // Without -1 the top right pixel of the square would be on edge of canvas therefore square would be off canvas
-    //   }
-    //   for (i = 0; i < h; i++) { // draw left and right wall
-    //     drawSq(0, i);
-    //     drawSq(w-1, i); 
-    //   }
-    // };
+    };    
   };
 </script>
 </body>
