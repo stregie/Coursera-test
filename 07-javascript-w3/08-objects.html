@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+  html{
+    --color-bg-1: #BCE8F0;
+    --color-bg-2: #9BDCE9;
+    --color-border-1: #4F8492;
+    --color-border-2: #022B3A;
+    --color-item-1: #6DA2B0;
+    --color-text-1: #022B3A;
+    --color-text-2: #044962;
+    --color-text-3: #6DA2B0;
+  }
+  body{
+    box-sizing: border-box;
+    background-color: var(--color-bg-2);
+  	color: var(--color-text-1);
+    font-size: 15px;
+  	font-family: Verdana, sans-serif;    
+  }
+  h1{
+    border-bottom: 3px solid var(--color-border-1);
+    color: var(--color-text-1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+  #description{
+    margin-bottom: 40px;
+  }
+  p{
+    line-height: 120%;
+    text-align: justify;
+  }
+  .box-n-btn{
+    border: 2px solid var(--color-border-1);
+    border-radius: 10px;
+  }
+  .text-box{
+    background-color: var(--color-bg-1);
+    color: var(--color-text-2);
+    font-size: 0.8em;
+    font-family: Verdana, sans-serif;
+    margin-bottom: 40px;
+    overflow: auto;
+    padding: 6px 12px 6px 12px;
+    resize: none;
+    height: 306.4px;    
+  }
+  .text-box:focus{
+    border-color: var(--color-border-1);
+    box-shadow: 0px 0px 0px 0px #000;
+  }
+  .text-box::placeholder{
+    color: var(--color-text-3);
+  }
+  .text-box:focus::placeholder{
+    color: var(--color-text-3);
+  }
+  #function-button{
+    background-color: var(--color-border-1);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 40px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+  #function-button:active{
+    background-color: var(--color-item-1);
+    border: 2px solid var(--color-item-1);
+  }
+</style>
+
+<div id = "main-content" class = "container">
+  <div class = "row">
+    <h1 class = "col-sm-12">JavaScript Objects - w3schools Tutorial</h1>
+    <div id = "description" class = "col-sm-10 col-sm-offset-1">
+      <p>Some examples using objects. All functions will show results in the console.</p>
+    </div>
+  </div>
+
+  <div class = "row">
+<!--     <div class = "col-sm-6">
+      <label>Input</label>
+      <textarea id = "input-box" class = "box-n-btn text-box form-control col-sm-6" placeholder = "Enter your message here..." rows = "16" maxlength = "10000"></textarea>
+    </div>
+
+    <div class = "col-sm-6">
+      <label>Result</label>
+      <div id = "result" class = "box-n-btn text-box"></div>
+    </div>
+  </div> -->
+
+  <div class = "row">
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn01()">Function 01 - Declaring an object</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn01a()">Function 01a - Declaring an object using an object literal</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn02()">Function 02 - Accessors (getter / setter)</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn03()">Function 03 - Object constructor</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn04()">Function 04 - Prototypes</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn05()">Function 05 - Classes</button>
+    </div>
+
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn06()">Function 06 - Object inside Array</button>
+    </div>
+  </div>
+</div>
+
+<script>
+	// Declaration of global variables
+	var c001, city2, t001;
+
+	// Objects can contain simple values, arrays and functions (or methods) as values
+	function fn01(){
+		var snake = new Object();
+		snake.headx = 3;
+		snake.heady = 4;
+		snake.length = 6;
+		snake.luckyNumbers = [21, 22, 23];
+		snake.goLeft = function(){
+			this.headx = this.headx + 1;
+		};
+
+		console.log(snake.luckyNumbers);
+		console.log("Value of snake.headx: " + snake.headx);
+		snake.goLeft();
+		console.log("Value of snake.headx after snake.goleft();: " + snake.headx);
+		console.log(snake);
+	};
+
+	// Object declaring with literals
+	function fn01a(){
+		var snake = {
+			headx: 3,
+			heady: 4,
+			length: 6,
+			luckyNumbers: [21, 22, 23],
+			goLeft: function(){
+				this.headx = this.headx + 1;
+			}
+		}
+		console.log(snake.luckyNumbers);
+		console.log("Value of snake.headx: " + snake.headx);
+		snake.goLeft();
+		console.log("Value of snake.headx after snake.goleft();: " + snake.headx);
+		console.log(snake);
+	};
+
+	// Accessors - setter, getter	
+	function fn02(){
+		var city1 = {
+		  name: "Berlin",
+		  population: 3769495,
+		  set setMayor(n){
+		  	this.mayor = n;
+		  },
+		  get populationInMillions(){
+		  	return Math.round(this.population / 100000) / 10;
+		  }		  
+		};
+		console.log(city1);
+		console.log(city1.populationInMillions);
+		city1.setMayor = "Michael Müller";
+		console.log(city1.mayor);
+		// console.log("Population of " + city1.name + " in millions: " + city1.populationInMillions);
+	};
+
+	// Object constructor - Yaakov style
+	function fn03(){ 
+		function Car(type, model, topsp, seatno){
+			this.type = type;
+			this.model = model;
+			this.topSpeed = topsp;
+			this.seatNumber = seatno;			
+		};
+		c001 = new Car("Suzuki", "Swift", 140, 5);
+		var c002 = new Car("Volkswagen", "Golf", 160, 4); // This cannot be accessed outside fn02()
+		console.log(c001);
+		console.log(c002);
+		c003 = new Car();
+		c003.type = "Audi";
+		console.log(c003);
+		document.getElementById("result").innerHTML = c003.type;
+	};
+
+	// Prototypes, tinkering to create getters-setters
+	function fn04(){
+		function Train(type, model, topsp, weight){
+			this.type = type;
+			this.model = model;
+			this.topSpeed = topsp;
+			this.weight = weight;			
+		};
+		Train.prototype.description = "Description of Train prototype";
+		console.log(Train.prototype.description); // returns the string
+		console.log(Train.description);  // returns undefined
+
+		Train.prototype.setTopSpeed = function(a) {
+			if (0 <= a){
+				this.topSpeed = a;
+			}	else {
+				console.log("Please set a non-negative top speed");
+			}
+		};
+
+		Train.prototype.getWeight = function() {
+			return this.weight + " t";
+		};
+		Train.prototype.getTopSpeed = function() {
+			return this.topSpeed + " km/h";
+		};
+
+		t001 = new Train("Stadler", "Flirt", 200, 206);
+		console.log(t001);				
+		console.log(t001.description); // returns the string (t001.prototype.description is an error)
+		console.log(t001.getTopSpeed());
+
+		t002 = new Train();
+		t002.setTopSpeed(200);
+		t002.setTopSpeed(-200);
+	};
+
+	// JavasScript Class, constructor, getter, setter
+
+	function fn05(){
+		class Truck {
+			constructor(name, model, horsepower){
+				this.name = name;
+				this.model = model;
+				this.horsepower = horsepower || 5;				
+			};
+			get getHorsePower(){
+				return this.horsepower + " hp";
+			};
+			set setHorsePower(x){
+				if (x < 0) {
+					console.log("Please set a non-negative top speed");
+				} else {
+					this.horsepower = x;
+				}
+			};
+		};
+		
+		var tru001 = new Truck ("Volvo", "FH16", 750);
+		console.log(Truck);
+		console.log(tru001);
+		console.log(tru001.getHorsePower);
+		tru001.setHorsePower = 120;
+		console.log(tru001.getHorsePower);
+		var tru002 = new Truck ("DAF", "XF Euro 6");
+		console.log(tru002.getHorsePower);
+		tru002.setHorsePower = 600;
+		console.log(tru002.getHorsePower);
+	};
+
+	// Object in array in object
+	
+	function fn06(){
+		var i;
+
+		var arr = [
+			"Zero",
+			"One",
+			"Two",
+			{x: 10, y: 11}
+		];
+		// console.log(arr[3].x);
+
+		var snake = {
+			head: {x: 6, y: 7},
+			body: [
+				{x: 6, y: 7},
+				{x: 7, y: 7},
+				{x: 8, y: 7},
+				{x: 9, y: 7}
+			]
+		};
+		console.log("Original snake: ");
+		console.log(snake);
+		
+		for (i = 0; i < snake.body.length; i++){
+			snake.body[i].x = snake.head.x;
+			snake.body[i].y = snake.head.y + i + 1;
+		};
+		console.log("New snake: ");
+		console.log(snake)
+		// console.log(snake);
+	};
+	fn06();
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->
+<!-- https://coolors.co/022b3a-044962-4f8492-6da2b0-218397-9bdce9-bce8f0 -->

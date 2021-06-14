@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX intro 2</title> 
+   <!--  <script>
+      // const xhttp = new XMLHttpRequest(); putting it here causes problems
+    </script> -->
+</head>
+<body>
+
+<h1>AJAX introduction</h1>
+<h4>w3schools - The basic XMLHttpRequest Object</h4>
+<button type="button" onclick="load01()">Load 01</button>
+<div id="target01a">Nothing has happened yet.</div>
+<div id="target01b">Neither has here.</div>
+<script>
+  function load01() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.getElementById("target01a").textContent = "Server says: " + this.responseText;
+      if (this.responseText == "2"){
+        document.getElementById("target01b").textContent = "Wow it is two! What are the odds?"
+      }
+    }
+    xhttp.open("GET", "02-intro2-a.txt");
+    xhttp.send();
+  };
+</script>
+
+<h4>From subdirectory</h4>
+<button type="button" onclick="load02()">Load 02</button>
+<div id="target02">Let's see if it can load from a subdirectory</div>
+<script>
+  function load02() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.getElementById("target02").textContent = this.responseText;
+    }
+    xhttp.open("GET", "data/02-intro2-c.txt");
+    xhttp.send();
+  };
+</script>
+
+
+<h4>Load data from an xml file (cdcatalog)</h4>
+<button type="button" onclick="load03()">Load 03</button>
+<div id="target03">Let's see an XML now!</div>
+<script>
+  function load03() {  // Load the XML and print only the entries where country == EU
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      const xmlDoc = this.responseXML; // The whole cdcatalog XML
+      const a = xmlDoc.getElementsByTagName("ARTIST");  // An array of each artist elements. Prototype: HTMLCollectionPrototype
+      const c = xmlDoc.getElementsByTagName("COUNTRY");
+
+      let txt = ""; // This is an initial value for txt
+      
+      for (let i = 0; i < c.length; i++) {
+        if (c[i].childNodes[0].nodeValue === "EU") {
+          txt += a[i].childNodes[0].nodeValue + ", ";
+        };
+      };
+      txt = txt.substr(0, txt.length-2); // To remove the last ", "
+      document.getElementById("target03").innerHTML = txt;
+    };
+    xhttp.open("GET", "02-intro2-cd-catalog.xml");
+    xhttp.send();
+  };
+</script>
+
+<h4>The onreadystatechange property</h4>
+<button type="button" onclick="load04()">Load 04</button>
+<input type = "text" id = "input04" value = "01-intro.txt">
+<div>We have these files: 01-intro.txt; 02-intro2-a.txt; 02-intro2-cd-catalog.xml</div>
+<div id="target04">Nothing was pressed yet</div>
+<script>
+  function load04(){
+    var input = document.getElementById("input04").value;
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      // console.log(this.readyState);
+      // console.log(this.status);
+      if (this.readyState == 4 && this.status == 200){
+        document.getElementById("target04").textContent = "200: We have found this file.";
+      }
+      if (this.readyState == 4 && this.status == 404){
+        document.getElementById("target04").textContent = "404: This file does not exist.";
+      }      
+    };
+    xhttp.open("GET", input);
+    xhttp.send();
+  };
+</script>
+
+<h4>Multiple Callback Functions</h4>
+<button type="button" onclick='load05("02-intro2-a.txt", callbFn1)'>Load 05 a</button>
+<button type="button" onclick='load05("02-intro2-b.txt", callbFn1)'>Load 05 b</button>
+<button type="button" onclick='load05("02-intro2-b.txt", callbFn2)'>Load 05 c</button>
+<div id="target05">So far no events.</div>
+<script>
+  // var xhttp2 = new XMLHttpRequest();
+  function load05 (url, callbFn){
+    const xhttp = new XMLHttpRequest(); 
+    xhttp.onload = function () {callbFn(this)};
+    xhttp.open("GET", url);
+    xhttp.send();    
+  };
+
+  function callbFn1(xhttp){
+    document.getElementById("target05").textContent = "This one is the first method. It says: " + xhttp.responseText;
+  };
+  function callbFn2(xhttp){
+    document.getElementById("target05").textContent = "This one is the second method. It says: " + xhttp.responseText;
+  };
+
+
+</script>
+
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

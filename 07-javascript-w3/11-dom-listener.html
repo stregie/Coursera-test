@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event listener</title>	
+</head>
+<style>
+body{
+    box-sizing:  border-box;
+}
+</style>
+<body>
+    <h1>Event listener</h1>
+    <h4>01 - HTML onclick</h4>
+    <p id = "target01">Button is not pressed</p>
+    <button onclick = "fn01a()">Button 1</button>
+    <button onclick = "fn01b()">Button 2</button>
+    <script>
+    	var target01 = document.getElementById("target01");
+		function fn01a(){
+		    target01.textContent = "Button 1 was the last pressed button";
+		};
+		function fn01b(){
+		    target01.textContent = "Button 2 was the last pressed button";
+		};
+    </script>
+
+    <h4>02 - HTML onclick vs addEventListener click - from Coursera Lecture 54</h4>
+    <p id = "target02">Button not pressed</p>
+    <button id = "button03">Button 3</button>
+    <button id = "button04">Button 4</button>
+    <script>
+    	var button03 = document.getElementById("button03");
+		button03.addEventListener("click", fn02a);
+
+		document.getElementById("button04").addEventListener("click", fn02b);
+
+		function fn02a(){
+			target02.textContent = "Button 3 was the last pressed button";
+		};
+		function fn02b(){
+			target02.textContent = "Button 4 was the last pressed button";		
+		};
+    </script>
+
+    <h4>03 - HTML onkeydown</h4>
+    <p>Press key U or key I</p>
+    <!--
+       	<p id = "target03a" onkeydown = "fn03a();">default text</p>
+       	
+       	This does not work. It only works if:
+	       	<body onkeydown = "fn03a();">
+	       		...
+	       		<script>
+		       		function fn03a(){document.getElementById("target03a").textContent = "keyPressed";}
+	       		<script>
+	       	</body>
+
+    -->
+    <input type = "text" onkeydown = "fn03b(event)">
+	<button onclick = 'document.getElementById("target03b").textContent = "No key was pressed.";'>Reset</button>
+    <p id = "target03b">No key was pressed.</p>
+
+    <script>
+    	function fn03b(event){ // 'event' could be also anything
+			document.getElementById("target03b").textContent = "The " + event.key + " key was pressed.";
+			// console.log(event);
+			// console.log(event.key);	
+		};
+	</script>
+
+	<h4>04 - addEventListener</h4>
+	<input id = "input04" type = "text">
+	<button onclick = 'document.getElementById("target04").textContent = "No key was pressed.";'>Reset</button>
+	<p id = "target04">No key was pressed.</p>
+	<script>
+		// window.addEventListener("keydown", fn04a);		It also works for the full window
+		// document.addEventListener("keydown", fn04a);     It also works for the full doc
+		document.getElementById("input04").addEventListener("keydown", fn04a);
+
+		function fn04a(event){
+			document.getElementById("target04").textContent = "The " + event.key + " key was pressed.";
+		};
+	</script>
+
+
+
+</body>
+</html>
+<!-- browser-sync start --server --directory --files "**/*" -->
+

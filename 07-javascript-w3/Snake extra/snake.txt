@@ -1,0 +1,3 @@
+Ötletek ráncfelvarráshoz:
+-------------------------
+- Különálló változók helyett egy objektum paraméterei legyenek a dolgok. Pl snake.head.x, snake.body[2].x stb. Vszeg egy sima csere is megteszi.

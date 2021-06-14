@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON basics</title> 
+</head>
+<body>
+
+<h1>JSON basics - w3schools</h1>
+<h4>Get the string</h4>
+<button type="button" onclick="load01()">Load 01</button>
+<div id="target01">Nothing is here yet</div>
+
+<script>
+  function load01(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.getElementById("target01").innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "03-json-a.json");
+    xhttp.send();
+  }
+</script>
+
+<h4>Get the string and parse it</h4>
+<button type="button" onclick="load02()">Load 02</button>
+<div id="target02">Nope, nothing</div>
+
+<script>
+  function load02(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      let obj01 = JSON.parse(this.responseText); // obj01 is an object
+      console.log(obj01);
+      document.getElementById("target02").innerHTML = obj01.name;
+    };
+    xhttp.open("GET", "03-json-a.json");
+    xhttp.send();
+  };
+</script>
+
+<h4>Parse an array</h4>
+<button type="button" onclick="load03()">Load 03</button>
+<div id="target03a">Question</div>
+<div id="target03b">Answer</div>
+<script>
+  function load03(){
+    let json03 = '["Beer", "Wine", "Champagne"]';
+    let arr03 = JSON.parse(json03);
+    console.log(arr03);
+    let text = "Do you want any ";
+    for (let i in arr03){
+      text += arr03[i];
+      if (i < arr03.length-1){
+        text += ", ";
+      } else {
+        text += "?";
+      }
+    };
+    document.getElementById("target04a").textContent = text;
+    document.getElementById("target04b").textContent = arr03[1] + ".";
+  };
+</script>
+
+<h4>Stringify!</h4>
+<button type="button" onclick="load04()">Load 04</button>
+<div id="target04a">What will we get here?</div>
+<script>
+  function load04(){
+    let obj04a = {Artist: "Izzy and the Black Trees", Country: "Poland", Style: "Post-punk"};
+    let json04a = JSON.stringify(obj04a);
+    console.log(json04a);
+    let obj04b = {
+      Artist: "Red Scalp",
+      Country: "Poland",
+      Style: "Stoner / Psych"
+    };
+    let json04b = JSON.stringify(obj04b);
+    console.log(json04b);
+  }
+  load04();
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

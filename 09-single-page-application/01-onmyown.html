@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Single-page application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+
+
+</head>
+<body>
+<style>
+  html{
+  --color-bg-1: #BCE8F0;
+  --color-bg-2: #9BDCE9;
+  --color-bg-3: #4F8492;
+  --color-border-1: #4F8492;
+  --color-border-2: #022B3A;
+  --color-item-1: #6DA2B0;
+  --color-item-2: #4F8492;
+  --color-text-1: #022B3A;
+  --color-text-2: #044962;
+  --color-text-3: #6DA2B0;
+  --color-text-4: #BCE8F0;
+
+  background-color: var(--color-bg-3);
+  }
+  body{
+    box-sizing: border-box;
+    background-color: var(--color-bg-2);
+    color: var(--color-text-1);
+    font-size: 15px;
+    font-family: Verdana, sans-serif;
+  }
+  header{
+    background: var(--color-item-2);
+    border-bottom: 3px solid var(--color-border-2);
+    color: var(--color-text-1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    padding: 10px;
+    text-align: center;
+  }
+  .navbar{
+    background-color: var(--color-item-2);
+    border: none;
+    border-radius: 0px; 
+    padding-top: 10px;
+    padding-bottom: 10px; 
+  }
+  .navbar-default .navbar-nav > li > a{
+    color: white;
+  }
+  .navbar-default .navbar-brand{
+    color:  white;
+  }
+  .navbar-default .navbar-toggle .icon-bar{
+    background-color:  white;
+  }
+  #main-content{
+    background:  var(--color-bg-2);
+    margin-bottom:  0px;
+    min-height:  500px;
+  }
+  h2{
+    text-align:  center;
+  }
+  img{
+    margin:  auto;
+    display:  block;
+  }
+  footer{
+    background: var(--color-item-2);
+    border-top: 3px solid var(--color-border-2);
+    color: white;
+    text-align:  center;
+    padding:  20px;
+  }
+</style>
+
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button id="navbarToggle" type="button"  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" onclick ='loadPage("snippets/00-main.html")'>Main Page</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="collapsable-nav">
+        <ul class="nav navbar-nav">
+          <li><a href="#" onclick='loadPage("snippets/01-dogs.html")'>Dog page</a></li>
+          <li><a href="#" onclick='loadPage("snippets/02-dogs.html")'>Sausage page</a></li>
+        </ul>      
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
+
+<div id="main-content" class = "container">
+  <h2>Main page</h2>
+
+</div>
+
+<footer>
+  <h4>This is the footer of this page</h4>
+</footer>
+
+<script>
+  // document.getElementById("li1").addEventListener("click", loadPage("snippets/01-dogs.html"));
+  function loadPage(pageUrl){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      document.getElementById("main-content").innerHTML = this.responseText;
+    }
+    xhttp.open("GET", pageUrl);
+    xhttp.send();
+  }
+  loadPage("snippets/00-main.html");
+  // loadPage("snippets/01-dogs.html");
+</script>  
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

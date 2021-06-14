@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX intro</title> 
+</head>
+<body>
+
+<h1>AJAX introduction</h1>
+<h4>w3schools - AJAX introduction</h4>
+<button type="button" onclick="load01()">Load 01-intro.txt</button>
+<div id="target01">
+  <p style = "background: darkblue; height: 50px; width: 50px;"></p>
+</div>
+
+<script>
+function load01() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("target01").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "01-intro.txt");
+  xhttp.send();
+}
+</script>
+</body>
+</html>
+
+<!-- browser-sync start --server --directory --files "**/*" -->

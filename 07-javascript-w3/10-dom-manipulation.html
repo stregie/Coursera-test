@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Canvas and graphics</title>
+  <title>Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">   
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/jquery-3.5.1.min.js"></script>
@@ -51,12 +51,11 @@
     color: var(--color-text-2);
     font-size: 0.8em;
     font-family: Verdana, sans-serif;
-    overflow: auto;
-    padding: 24px 69px 24px 69px;
-    resize: none;
     margin-bottom: 40px;
-    /*height: 450px;
-    width: 1140px;*/
+    overflow: auto;
+    padding: 6px 12px 6px 12px;
+    resize: none;
+    height: 306.4px;    
   }
   .text-box:focus{
     border-color: var(--color-border-1);
@@ -85,72 +84,62 @@
 
 <div id = "main-content" class = "container">
   <div class = "row">
-    <h1 class = "col-sm-12">Canvas and graphics</h1>
+    <h1 class = "col-sm-12">JavaScript DOM manipulation - Coursera / w3schools Tutorial</h1>
     <div id = "description" class = "col-sm-10 col-sm-offset-1">
-      <p>The purpose of this file is try the possibilites of graphic display.</p>
+      <p>Description of this file</p>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class = "col-sm-6">
+      <label>Input</label>
+      <textarea id = "input-box" class = "box-n-btn text-box form-control col-sm-6" placeholder = "Enter your message here..." rows = "16" maxlength = "10000"></textarea>
+    </div>
+
+    <div class = "col-sm-6">
+      <label>Result</label>
+      <div id = "result" class = "box-n-btn text-box"></div>
     </div>
   </div>
 
   <div class = "row">
     <div class = "col-sm-12">
-      <label>Canvas</label>
-      <div class = "clearfix"></div>
-      <canvas id = "canvas-box" class = "box-n-btn text-box" width = "1000" height = "400"></canvas>
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn01()">DOM manipulation 1 - innerHTML - use &lt;h1&gt;text&lt;&frasl;h1&gt; </button>
     </div>
 
     <div class = "col-sm-12">
-      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "drawRectangle()">Draw Rectangle</button>
-    </div>
-     <div class = "col-sm-12">
-      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "drawSmiley()">Draw Smiley</button>
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn02()">DOM manipulation 2 - textContent - use &lt;h1&gt;text&lt;&frasl;h1&gt; </button>
     </div>
 
-  </div>
-</div>
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn03()">DOM manipulation 3 - innerHTML of description div</button>
+    </div>
 
+    <div class = "col-sm-12">
+      <button id = "function-button" type = "button" class = "box-n-btn btn-block col-sm-12" onclick = "fn04()">DOM manipulation 4 - textContent of description div</button>
+    </div>
+	</div>
 <script>
-  var canvas = document.getElementById("canvas-box");
-
-  function drawRectangle (){
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, 1000, 400);
-
-    ctx.fillStyle = "#4F8492";
-    ctx.fillRect(0, 0, 600, 150);
+  function fn01(){ // Screws up result box
+    let a = document.getElementById("input-box").value;
+    document.getElementById("result").innerHTML = a;
   };
-
-  function drawSmiley(){
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, 1000, 400);
-
-    ctx.beginPath();
-    ctx.arc(500, 200, 120, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#4F8492";
-    ctx.fillStyle = "#FFFD82";
-    ctx.fill();
-    ctx.lineWidth = 5;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(500, 200, 80, 0.1 * Math.PI, 0.9 * Math.PI);
-    ctx.strokeStyle = "#4F8492";
-    ctx.lineWidth = 5;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(540, 160, 12, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#4F8492";
-    ctx.fillStyle = "#4F8492";
-    ctx.fill();
-    ctx.lineWidth = 5;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(460, 160, 12, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#4F8492";
-    ctx.fillStyle = "#4F8492";
-    ctx.fill();
-    ctx.lineWidth = 5;
-    ctx.stroke();
+  function fn02(){ // Won't screw up result box
+    let a = document.getElementById("input-box").value;
+    document.getElementById("result").textContent = a;
   };
+  function fn03(){
+    let a = document.getElementById("description").textContent;
+    document.getElementById("result").textContent = a;
+  };
+  function fn04(){
+    let a = document.getElementById("description").innerHTML;
+    document.getElementById("result").textContent = a;
+  };
+  
+  
 
+	
 </script>
 </body>
 </html>
